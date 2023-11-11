@@ -5,10 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WriteToExcel"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <TextBox HorizontalAlignment="Left" Margin="100,80,0,0" TextWrapping="Wrap" Text="please fill entersdasd file path" VerticalAlignment="Top" Width="300"/>
+        WindowStyle="None"
+        Background="Transparent"
+        AllowsTransparency="True"
+        Title="MainWindow" Height="700" Width="1300">
 
-
-    </Grid>
 </Window>
