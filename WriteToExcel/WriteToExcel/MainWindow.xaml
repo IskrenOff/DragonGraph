@@ -137,13 +137,14 @@
                                 Click="btnMinimize_Click" Height="29">
                             <fontAwesome:IconImage Icon="WindowMinimize" Style="{StaticResource controlButtonIcon}" Height="20" Width="22" RenderTransformOrigin="0.379,-0.196"/>
                         </Button>
-                      
-                    </StackPanel>
 
+                    </StackPanel>
                     
-                    
+                    <!--Content section / Child views-->
+                    <ContentControl Content=""
+                                     Grid.Row="2"
+                                     Margin="25"/>
                 </Grid>
-         
             </Border>
 
         </Grid>
