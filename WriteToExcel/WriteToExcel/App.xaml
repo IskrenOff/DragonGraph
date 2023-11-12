@@ -4,6 +4,12 @@
              xmlns:local="clr-namespace:WriteToExcel"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-        <ResourceDictionary Source="/Styles/UIColors.xaml"/>
+        <ResourceDictionary>
+            <!--Merged two resource dictionary because day don't work-->
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Styles/UIColors.xaml"/>
+                <ResourceDictionary Source="/Styles/ButtonStyles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

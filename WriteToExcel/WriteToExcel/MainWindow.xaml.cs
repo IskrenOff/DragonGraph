@@ -28,5 +28,10 @@ namespace WriteToExcel
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
         }
+
+        private void pnlControlBar_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
+        }
     }
 }
