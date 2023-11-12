@@ -25,8 +25,10 @@
         <Grid>
 
             <Grid.ColumnDefinitions>
+
                 <!-- Navigation Menu-->
                 <ColumnDefinition Width="250"/>
+                
                 <!-- Content section-->
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
@@ -39,6 +41,39 @@
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,0.7">
                         <GradientStop Color="{StaticResource secondaryBackColors1}" Offset="0"/>
                         <GradientStop Color="{StaticResource secondaryBackColors2}" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+
+                <StackPanel>
+                    
+                    <!--Logo panel-->
+                    <StackPanel Orientation="Horizontal"
+                            Height="50"
+                            Margin="15,25,0,40">
+                        <Image Source="/Images/DragonBackgroundRemoved.png" Height="50"/>
+                        <TextBlock Text="Dragon graph"
+                                   Foreground="{StaticResource titleColor1}"
+                                   FontSize="23"
+                                   FontFamily="Georgia"
+                                   FontWeight="Medium"
+                                   VerticalAlignment="Center"
+                                   Margin="15,0,0,0"/>
+                    </StackPanel>
+                    
+                    <!--Menu buttons-->
+                    
+                </StackPanel>
+                
+            </Border>
+
+            <!-- Main Section-->
+            <Border CornerRadius="0,10,10,0"
+                    Grid.Column="1">
+
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="1,1" EndPoint="0,0">
+                        <GradientStop Color="{StaticResource primeryBackColors1}" Offset="0"/>
+                        <GradientStop Color="{StaticResource primeryBackColors2}" Offset="1"/>
                     </LinearGradientBrush>
                 </Border.Background>
                 
