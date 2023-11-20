@@ -29,7 +29,7 @@
 
                 <!-- Navigation Menu-->
                 <ColumnDefinition Width="250"/>
-                
+
                 <!-- Content section-->
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
@@ -46,7 +46,7 @@
                 </Border.Background>
 
                 <StackPanel>
-                    
+
                     <!--Logo panel-->
                     <StackPanel Orientation="Horizontal"
                             Height="50"
@@ -61,16 +61,21 @@
                                    Margin="1,0,0,0"/>
                     </StackPanel>
                     
-                    <!--Menu buttons-->
-                    <RadioButton Style="{StaticResource menuButton}"
-                                 Tag="{StaticResource color1}">
+                    <!--Menu Buttons-->
+                    <!--Home Button-->
+                    <RadioButton x:Name="HomeButton" Style="{StaticResource menuButton}"
+                                 Tag="{StaticResource color1}"  Checked="HomeButton_Checked">
 
-                        <StackPanel Orientation="Horizontal">
-                            <fontAwesome:IconImage Icon="Home" Style="{StaticResource menuButtonIcon}"/>
-                            <TextBlock Text="Home" Style="{StaticResource menuButtonText}"/>
-                        </StackPanel>
-                        
+                        <RadioButton.Content>
+                            <StackPanel Orientation="Horizontal">
+                                <fontAwesome:IconImage Icon="Home" Style="{StaticResource menuButtonIcon}"/>
+                                <TextBlock Text="Home" Style="{StaticResource menuButtonText}"/>
+                            </StackPanel>
+                        </RadioButton.Content>
+
                     </RadioButton>
+
+                    <!--Graph button-->
 
                     <RadioButton Style="{StaticResource menuButton}"
              Tag="{StaticResource color2}">
@@ -83,7 +88,7 @@
                     </RadioButton>
 
                 </StackPanel>
-                
+
             </Border>
 
             <!-- Main Section-->
@@ -139,15 +144,15 @@
                         </Button>
 
                     </StackPanel>
-                    
+
                     <!--Content section / Child views-->
-                    <ContentControl Content=""
+                    <ContentControl
                                      Grid.Row="2"
-                                     Margin="25"/>
+                                     Margin="25,0,25,25"/>
                 </Grid>
             </Border>
 
         </Grid>
-        
+
     </Border>
 </Window>

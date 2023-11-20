@@ -69,5 +69,13 @@ namespace WriteToExcel
         {
             this.MaxHeight = SystemParameters.MaximizedPrimaryScreenHeight;
         }
+
+        private void HomeButton_Checked(object sender, RoutedEventArgs e)
+        {
+            if ( sender is RadioButton  radioButton && radioButton.IsChecked == true )
+            {
+                
+            }
+        }
     }
 }
