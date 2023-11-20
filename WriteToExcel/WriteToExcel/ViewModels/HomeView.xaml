@@ -8,18 +8,10 @@
              d:DesignHeight="650" d:DesignWidth="1050">
     <Grid>
 
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>
+        
 
-        <Grid.ColumnDefinitions >
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="Auto"/>
-        </Grid.ColumnDefinitions>
-
-        <TextBox x:Name="excelFilePathCell" FontSize="20" Foreground="#FFFE0404" Grid.Row="0" Width="800" Height="40" 
-                  Margin="150,0,30,0"/>
+        <TextBox x:Name="excelFilePathCell" FontSize="20" Foreground="#FFFE0404" Grid.Row="0" Width="800" Height="40"
+                  HorizontalAlignment="Stretch"  Margin="10"/>
         <TextBox FontSize="25" TextWrapping="Wrap" 
                  Text="File path" HorizontalAlignment="Left" Margin="10" Height="40" Width="150" FontFamily="Georgia" FontWeight="Medium"/>
 
