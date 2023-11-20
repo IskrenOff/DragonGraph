@@ -17,6 +17,8 @@ using System.Runtime;
 using System.Windows.Forms;
 using System.DirectoryServices;
 using System.Windows.Interop;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
+
 
 namespace WriteToExcel
 {
@@ -72,9 +74,20 @@ namespace WriteToExcel
 
         private void HomeButton_Checked(object sender, RoutedEventArgs e)
         {
-            if ( sender is RadioButton  radioButton && radioButton.IsChecked == true )
+            System.Windows.Controls.RadioButton? homeRadioButton = sender as System.Windows.Controls.RadioButton; 
+            if (homeRadioButton != null && homeRadioButton.IsChecked == true) 
             {
-                
+                contentArea.Content = new WriteToExcel.ViewModels.HomeView();
+            }
+        }
+
+        private void Graph_Checked(object sender, RoutedEventArgs e)
+        {
+            System.Windows.Controls.RadioButton radioButton1 = sender as System.Windows.Controls.RadioButton;
+
+            if (radioButton1 != null && radioButton1.IsChecked == true)
+            {
+                //contentArea.Content = new WriteToExcel.ViewModels.HomeView();
             }
         }
     }

@@ -77,8 +77,8 @@
 
                     <!--Graph button-->
 
-                    <RadioButton Style="{StaticResource menuButton}"
-             Tag="{StaticResource color2}">
+                    <RadioButton x:Name="Graph" Style="{StaticResource menuButton}"
+                                 Tag="{StaticResource color2}" Checked="Graph_Checked">
 
                         <StackPanel Orientation="Horizontal">
                             <fontAwesome:IconImage Icon="LineChart"  Style="{StaticResource menuButtonIcon}"/>
@@ -146,9 +146,9 @@
                     </StackPanel>
 
                     <!--Content section / Child views-->
-                    <ContentControl
-                                     Grid.Row="2"
-                                     Margin="25,0,25,25"/>
+                    <ContentControl x:Name="contentArea"
+                                    Grid.Row="2"
+                                    Margin="25,0,25,25"/>
                 </Grid>
             </Border>
 
