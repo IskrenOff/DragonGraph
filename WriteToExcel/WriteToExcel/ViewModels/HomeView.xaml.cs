@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.IO;
 
 namespace WriteToExcel.ViewModels
 {
@@ -24,10 +25,20 @@ namespace WriteToExcel.ViewModels
         {
             InitializeComponent();
         }
-
-        private void Run_Click(object sender, RoutedEventArgs e)
+     
+        private void ExtractButton_Click(object sender, RoutedEventArgs e)
         {
+            //Retrieve the pasted file path
+            string excelFilePath = excelFilePathTextBox.Text;
 
+            if (!string.IsNullOrEmpty(excelFilePath) && System.IO.File.Exists(excelFilePath))
+            {
+
+            }
+            else
+            {
+                MessageBox.Show("Please enter a valid Excel file path, or use Excel to make the graphs manually !!!");
+            }
         }
     }
 }

@@ -11,7 +11,7 @@
 
 
         <!-- File path field -->
-        <TextBox x:Name="excelFilePathCell"  FontSize="18" FontFamily="Georgia" Background="{StaticResource titleColor3}" 
+        <TextBox x:Name="excelFilePathTextBox"  FontSize="18" FontFamily="Georgia" Background="{StaticResource titleColor3}" 
                  Grid.Row="0" Width="Auto" Height="20"
                  HorizontalAlignment="Stretch"  Margin="200,0,100,0"/>
 
@@ -21,7 +21,7 @@
 
         <!--Button for Run the data extraction-->
         <Button  HorizontalAlignment="Left" Margin="200,200,0,0" VerticalAlignment="Center" FontSize="20" FontFamily="Georgia" Height="40" Width="150" 
-                Background="{StaticResource color1}" BorderBrush="{StaticResource color3}" OpacityMask="{DynamicResource color10}" >
+                Background="{StaticResource color1}" BorderBrush="{StaticResource color3}" OpacityMask="{DynamicResource color10}" Click="ExtractButton_Click" >
 
             <Button.Resources>
                 <Style TargetType="Border">
