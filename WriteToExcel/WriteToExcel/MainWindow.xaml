@@ -148,7 +148,10 @@
                     <!--Content section / Child views-->
                     <ContentControl x:Name="contentArea"
                                     Grid.Row="2"
-                                    Margin="25,0,25,25"/>
+                                    Margin="25,0,25,25">
+                        
+                        
+                    </ContentControl>
                 </Grid>
             </Border>
 

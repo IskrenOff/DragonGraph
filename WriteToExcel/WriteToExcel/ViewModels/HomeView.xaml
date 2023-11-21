@@ -4,16 +4,19 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WriteToExcel.ViewModels"
+             
              mc:Ignorable="d" 
              d:DesignHeight="650" d:DesignWidth="1050">
     <Grid>
-
         
 
-        <TextBox x:Name="excelFilePathCell" FontSize="20" Foreground="#FFFE0404" Grid.Row="0" Width="800" Height="40"
-                  HorizontalAlignment="Stretch"  Margin="10"/>
-        <TextBox FontSize="25" TextWrapping="Wrap" 
-                 Text="File path" HorizontalAlignment="Left" Margin="10" Height="40" Width="150" FontFamily="Georgia" FontWeight="Medium"/>
+        <!-- File path field -->
+        <TextBox x:Name="excelFilePathCell"  FontSize="18" FontFamily="Georgia" Background="{StaticResource titleColor3}" 
+                 Grid.Row="0" Width="Auto" Height="20"
+                 HorizontalAlignment="Stretch"  Margin="200,0,100,0"/>
+        <!--Text description for the field-->
+        <TextBox FontSize="20" TextWrapping="Wrap" TextAlignment="Center" Text="File path" Foreground="{StaticResource plainTextColor1}"
+                 Margin="90" HorizontalAlignment="Left" Height="25" Width="100" FontFamily="Georgia" FontWeight="Medium" Background="Transparent" BorderThickness="0"/>
 
     </Grid>
 </UserControl>
