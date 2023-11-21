@@ -33,12 +33,18 @@ namespace WriteToExcel.ViewModels
 
             if (!string.IsNullOrEmpty(excelFilePath) && System.IO.File.Exists(excelFilePath))
             {
-
+                // Call method to read CSV file data
+                ReadCSVFile(excelFilePath);
             }
             else
             {
                 MessageBox.Show("Please enter a valid Excel file path, or use Excel to make the graphs manually !!!");
             }
+        }
+
+        private void ReadCSVFile(string excelFilePath)
+        {
+            throw new NotImplementedException();
         }
     }
 }
