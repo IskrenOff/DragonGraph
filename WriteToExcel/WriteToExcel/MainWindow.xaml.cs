@@ -45,16 +45,19 @@ namespace WriteToExcel
             SendMessage(helper.Handle, 161, 2, 0);
         }
 
+        //Close the APP on click
         private void closeButton_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
 
+        //Minimize the APP window on click
         private void btnMinimize_Click(object sender, RoutedEventArgs e)
         {
             this.WindowState = WindowState.Minimized;
         }
 
+        //Maximize the APP window on click
         private void btnMaximize_Click(object sender, RoutedEventArgs e)
         {
             if (this.WindowState== WindowState.Normal)
@@ -72,6 +75,7 @@ namespace WriteToExcel
             this.MaxHeight = SystemParameters.MaximizedPrimaryScreenHeight;
         }
 
+        //Home view 
         private void HomeButton_Checked(object sender, RoutedEventArgs e)
         {
             System.Windows.Controls.RadioButton? homeRadioButton = sender as System.Windows.Controls.RadioButton; 

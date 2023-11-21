@@ -3,20 +3,39 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:WriteToExcel.ViewModels"
-             
+             xmlns:local="clr-namespace:WriteToExcel.ViewModels" 
+             xmlns:fontAwesome="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
              mc:Ignorable="d" 
              d:DesignHeight="650" d:DesignWidth="1050">
     <Grid>
-        
+
 
         <!-- File path field -->
         <TextBox x:Name="excelFilePathCell"  FontSize="18" FontFamily="Georgia" Background="{StaticResource titleColor3}" 
                  Grid.Row="0" Width="Auto" Height="20"
                  HorizontalAlignment="Stretch"  Margin="200,0,100,0"/>
+
         <!--Text description for the field-->
         <TextBox FontSize="20" TextWrapping="Wrap" TextAlignment="Center" Text="File path" Foreground="{StaticResource plainTextColor1}"
                  Margin="90" HorizontalAlignment="Left" Height="25" Width="100" FontFamily="Georgia" FontWeight="Medium" Background="Transparent" BorderThickness="0"/>
+
+        <!--Button for Run the data extraction-->
+        <Button  HorizontalAlignment="Left" Margin="200,200,0,0" VerticalAlignment="Center" FontSize="20" FontFamily="Georgia" Height="40" Width="150" 
+                Background="{StaticResource color1}" BorderBrush="{StaticResource color3}" OpacityMask="{DynamicResource color10}" >
+
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
+            <StackPanel>
+                <TextBlock Text="Extract data" FontFamily="Georgia" FontSize="15" Width="89" Margin="25,10,0,0" Background="Transparent" Focusable="False"/>
+                <fontAwesome:IconImage Icon="Database" Height="20" Width="20" Margin="0,-20,100,10"/>
+            </StackPanel>
+        </Button>
+
+
+
 
     </Grid>
 </UserControl>

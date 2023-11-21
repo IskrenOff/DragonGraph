@@ -24,5 +24,10 @@ namespace WriteToExcel.ViewModels
         {
             InitializeComponent();
         }
+
+        private void Run_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

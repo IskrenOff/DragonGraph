@@ -82,7 +82,7 @@
 
                         <StackPanel Orientation="Horizontal">
                             <fontAwesome:IconImage Icon="LineChart"  Style="{StaticResource menuButtonIcon}"/>
-                            <TextBlock Text="Graphs" Style="{StaticResource menuButtonText}"/>
+                            <TextBlock Text="Slide Force" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
 
                     </RadioButton>
