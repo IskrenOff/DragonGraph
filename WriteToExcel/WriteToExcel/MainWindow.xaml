@@ -75,10 +75,10 @@
 
                     </RadioButton>
 
-                    <!--Graph button-->
+                    <!--Slide force button-->
 
-                    <RadioButton x:Name="Graph" Style="{StaticResource menuButton}"
-                                 Tag="{StaticResource color2}" Checked="Graph_Checked">
+                    <RadioButton x:Name="SlideForce" Style="{StaticResource menuButton}"
+                                 Tag="{StaticResource color2}" Checked="SlideForce_Checked">
 
                         <StackPanel Orientation="Horizontal">
                             <fontAwesome:IconImage Icon="LineChart"  Style="{StaticResource menuButtonIcon}"/>

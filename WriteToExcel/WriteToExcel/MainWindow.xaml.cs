@@ -85,13 +85,14 @@ namespace WriteToExcel
             }
         }
 
-        private void Graph_Checked(object sender, RoutedEventArgs e)
+        //Slide Force graph view
+        private void SlideForce_Checked(object sender, RoutedEventArgs e)
         {
-            System.Windows.Controls.RadioButton radioButton1 = sender as System.Windows.Controls.RadioButton;
+            System.Windows.Controls.RadioButton? slideForceButton = sender as System.Windows.Controls.RadioButton;
 
-            if (radioButton1 != null && radioButton1.IsChecked == true)
+            if ((slideForceButton != null && slideForceButton.IsChecked == true))
             {
-                //contentArea.Content = new WriteToExcel.ViewModels.HomeView();
+                contentArea.Content = new WriteToExcel.ViewModels.SlideForceView();
             }
         }
     }
