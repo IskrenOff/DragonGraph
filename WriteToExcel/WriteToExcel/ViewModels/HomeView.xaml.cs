@@ -48,14 +48,16 @@ namespace WriteToExcel.ViewModels
         private void ReadExtractedData(string csvFilePath)
         {
             //To be checked , not sure if this is going to work ??????
-            ReadExtractedData extractedData = new ReadExtractedData
-            {
-                SlideForce = new List<double>(),
-                Velocity = new List<double>(),
-                CushionForce = new List<double>(),
-                CushionPosition = new List<double>(),
-                TimeStamp = new List<double>(),
-            };
+            //ReadExtractedData extractedData = new ReadExtractedData
+            //{
+            //    SlideForce = new List<double>(),
+            //    Velocity = new List<double>(),
+            //    CushionForce = new List<double>(),
+            //    CushionPosition = new List<double>(),
+            //    TimeStamp = new List<double>(),
+            //};
+
+            List<double> iskren = new List<double>();
 
             //Taking the row data as array of strings
             string[] columnNames = { "SlideForce", "Velocity", "CushionForce", "CushionPosition", "TimeStamp" };
@@ -88,6 +90,13 @@ namespace WriteToExcel.ViewModels
                             {
                                 //Cycle through the columns
                                 int columnIndex = i % columnNames.Length;
+
+                                switch (columnNames[columnIndex])
+                                {
+                                    case "SlideForce":
+                                        
+                                    default:
+                                }
                             }
                         }
                     }
