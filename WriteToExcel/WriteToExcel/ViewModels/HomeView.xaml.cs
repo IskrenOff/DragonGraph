@@ -13,6 +13,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.IO;
+using WriteToExcel.extractData;
+using System.Security.Cryptography.X509Certificates;
+using Microsoft.VisualBasic.FileIO;
 
 namespace WriteToExcel.ViewModels
 {
@@ -34,7 +37,7 @@ namespace WriteToExcel.ViewModels
             if (!string.IsNullOrEmpty(csvFilePath) && System.IO.File.Exists(csvFilePath))
             {
                 // Call method to read CSV file data
-                ReadCSVFile(csvFilePath);
+                ReadExtractedData(csvFilePath);
             }
             else
             {
@@ -42,17 +45,65 @@ namespace WriteToExcel.ViewModels
             }
         }
 
-        
-
-        public extractData ExtractDataColumns(string csvFilePath)
+        private void ReadExtractedData(string csvFilePath)
         {
+            //To be checked , not sure if this is going to work ??????
+            ReadExtractedData extractedData = new ReadExtractedData
+            {
+                SlideForce = new List<double>(),
+                Velocity = new List<double>(),
+                CushionForce = new List<double>(),
+                CushionPosition = new List<double>(),
+                TimeStamp = new List<double>(),
+            };
+
+            //Taking the row data as array of strings
+            string[] columnNames = { "SlideForce", "Velocity", "CushionForce", "CushionPosition", "TimeStamp" };
+
+            using (TextFieldParser parser = new TextFieldParser(csvFilePath)) 
+            {
+                parser.TextFieldType = FieldType.Delimited;
+                parser.SetDelimiters(",");
+
+                //Skip header rows are any unnecessary data before the target data
+                bool isTargetData = false;
+                while (!parser.EndOfData && !isTargetData) 
+                {
+                    string[] fields = parser.ReadFields();
+                    if (fields.Length > 0 && fields[0].Trim() == "[Penn Data]")
+                    {
+                        isTargetData = true;
+                    }
+                }
+
+                //Extract data based on specific pattern
+                while (!parser.EndOfData)
+                {
+                    string[] fields = parser.ReadFields();
+                    if (fields.Length >= 5)
+                    {
+                        for (int i = 0; i < fields.Length; i++)
+                        {
+                            if (double.TryParse(fields[i], out double value))
+                            {
+                                //Cycle through the columns
+                                int columnIndex = i % columnNames.Length;
+                            }
+                        }
+                    }
+                }
+            }
+
+
 
         }
 
-        private void ReadCSVFile(string excelFilePath)
-        {
 
-            throw new NotImplementedException();
-        }
+
+        //private void ReadCSVFile(string excelFilePath)
+        //{
+
+        //    throw new NotImplementedException();
+        //}
     }
 }
