@@ -11,7 +11,7 @@
 
 
         <!-- File path field -->
-        <TextBox x:Name="excelFilePathTextBox"  FontSize="18" FontFamily="Georgia" Background="{StaticResource titleColor3}" 
+        <TextBox x:Name="csvFilePathTextBox"  FontSize="18" FontFamily="Georgia" Background="{StaticResource titleColor3}" 
                  Grid.Row="0" Width="Auto" Height="20"
                  HorizontalAlignment="Stretch"  Margin="200,0,100,0"/>
 

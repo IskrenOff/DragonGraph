@@ -25,16 +25,16 @@ namespace WriteToExcel.ViewModels
         {
             InitializeComponent();
         }
-     
+
         private void ExtractButton_Click(object sender, RoutedEventArgs e)
         {
             //Retrieve the pasted file path
-            string excelFilePath = excelFilePathTextBox.Text;
+            string csvFilePath = csvFilePathTextBox.Text;
 
-            if (!string.IsNullOrEmpty(excelFilePath) && System.IO.File.Exists(excelFilePath))
+            if (!string.IsNullOrEmpty(csvFilePath) && System.IO.File.Exists(csvFilePath))
             {
                 // Call method to read CSV file data
-                ReadCSVFile(excelFilePath);
+                ReadCSVFile(csvFilePath);
             }
             else
             {
@@ -42,8 +42,16 @@ namespace WriteToExcel.ViewModels
             }
         }
 
+        
+
+        public extractData ExtractDataColumns(string csvFilePath)
+        {
+
+        }
+
         private void ReadCSVFile(string excelFilePath)
         {
+
             throw new NotImplementedException();
         }
     }
