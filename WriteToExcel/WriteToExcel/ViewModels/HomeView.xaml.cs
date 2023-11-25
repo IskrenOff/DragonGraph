@@ -13,7 +13,6 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.IO;
-using WriteToExcel.extractData;
 using System.Security.Cryptography.X509Certificates;
 using Microsoft.VisualBasic.FileIO;
 
@@ -44,6 +43,7 @@ namespace WriteToExcel.ViewModels
                 MessageBox.Show("Please enter a valid Excel file path, or use Excel to make the graphs manually !!!");
             }
         }
+           
 
         private void ReadExtractedData(string csvFilePath)
         {
@@ -57,19 +57,23 @@ namespace WriteToExcel.ViewModels
             //    TimeStamp = new List<double>(),
             //};
 
-            List<double> iskren = new List<double>();
+            List<double> slideForce = new List<double>();
+            List<double> velocity = new List<double>();
+            List<double> cushionForce = new List<double>();
+            List<double> cushionPosition = new List<double>();
+            List<double> timeStamp = new List<double>();
 
             //Taking the row data as array of strings
             string[] columnNames = { "SlideForce", "Velocity", "CushionForce", "CushionPosition", "TimeStamp" };
 
-            using (TextFieldParser parser = new TextFieldParser(csvFilePath)) 
+            using (TextFieldParser parser = new TextFieldParser(csvFilePath))
             {
                 parser.TextFieldType = FieldType.Delimited;
                 parser.SetDelimiters(",");
 
                 //Skip header rows are any unnecessary data before the target data
                 bool isTargetData = false;
-                while (!parser.EndOfData && !isTargetData) 
+                while (!parser.EndOfData && !isTargetData)
                 {
                     string[] fields = parser.ReadFields();
                     if (fields.Length > 0 && fields[0].Trim() == "[Penn Data]")
@@ -93,9 +97,21 @@ namespace WriteToExcel.ViewModels
 
                                 switch (columnNames[columnIndex])
                                 {
-                                    case "SlideForce":
-                                        
-                                    default:
+                                    case "slideForce":
+                                        slideForce.Add(value);
+                                        break;
+                                    case "velocity":
+                                        velocity.Add(value);
+                                        break;
+                                    case "cushionForce":
+                                        cushionForce.Add(value);
+                                        break;
+                                    case "cushionPosition":
+                                        cushionPosition.Add(value);
+                                        break;
+                                    case "timeStamp":
+                                        timeStamp.Add(value);
+                                        break;
                                 }
                             }
                         }
@@ -103,16 +119,9 @@ namespace WriteToExcel.ViewModels
                 }
             }
 
-
+            Console.WriteLine("SlideForce:");
+            Console.WriteLine(string.Join(", ", slideForce));
 
         }
-
-
-
-        //private void ReadCSVFile(string excelFilePath)
-        //{
-
-        //    throw new NotImplementedException();
-        //}
     }
-}
+    }
