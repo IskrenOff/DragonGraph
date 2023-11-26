@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using System.IO;
 using System.Security.Cryptography.X509Certificates;
 using Microsoft.VisualBasic.FileIO;
+using Microsoft.Win32;
 
 namespace WriteToExcel.ViewModels
 {
@@ -26,6 +27,21 @@ namespace WriteToExcel.ViewModels
         public HomeView()
         {
             InitializeComponent();
+        }
+
+        private void FindCSVFile_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            //Filter for CSF files
+            openFileDialog.Filter = "CSV files (*.csv)|*.csv|All files (*.*)|*.*";
+            //Set initial directory
+            openFileDialog.InitialDirectory=Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+
+            if (openFileDialog.ShowDialog() == true)
+            {
+                // Retrieve the selected file path and display it in the text box
+                csvFilePathTextBox.Text = openFileDialog.FileName;
+            }
         }
 
         private void ExtractButton_Click(object sender, RoutedEventArgs e)
@@ -123,6 +139,6 @@ namespace WriteToExcel.ViewModels
             Console.WriteLine("SlideForce:");
             Console.WriteLine(string.Join(", ", slideForce));
 
-        }
+        }           
     }
     }

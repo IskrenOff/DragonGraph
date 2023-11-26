@@ -20,7 +20,7 @@
                  Margin="90" HorizontalAlignment="Left" Height="25" Width="100" FontFamily="Georgia" FontWeight="Medium" Background="Transparent" BorderThickness="0"/>
 
         <!--Button for Run the data extraction-->
-        <Button  HorizontalAlignment="Left" Margin="200,200,0,0" VerticalAlignment="Center" FontSize="20" FontFamily="Georgia" Height="40" Width="150" 
+        <Button  HorizontalAlignment="Left" Margin="300,200,0,0" VerticalAlignment="Center" FontSize="20" FontFamily="Georgia" Height="40" Width="150" 
                 Background="{StaticResource color1}" BorderBrush="{StaticResource color3}" OpacityMask="{DynamicResource color10}" Click="ExtractButton_Click" >
 
             <Button.Resources>
@@ -33,6 +33,23 @@
                 <fontAwesome:IconImage Icon="Database" Height="20" Width="20" Margin="0,-20,100,10"/>
             </StackPanel>
         </Button>
+        
+        <!--Button to find CSV file location path with windows explorer-->
+        <Button  HorizontalAlignment="Left" Margin="600,200,0,0" VerticalAlignment="Center" FontSize="20" FontFamily="Georgia" Height="40" Width="150" 
+        Background="{StaticResource color3}" BorderBrush="{StaticResource color3}" OpacityMask="{DynamicResource color10}" Click="FindCSVFile_Click" >
+
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
+            <StackPanel>
+                <TextBlock Text="Find CSV file" FontFamily="Georgia" FontSize="15" Width="89" Margin="25,10,0,0" Background="Transparent" Focusable="False"/>
+                <fontAwesome:IconImage Icon="MagnifyingGlass" Height="20" Width="20" Margin="0,-20,100,10"/>
+            </StackPanel>
+        </Button>
+
+
 
 
 
