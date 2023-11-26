@@ -49,15 +49,21 @@ namespace WriteToExcel.ViewModels
             //Retrieve the pasted file path
             string csvFilePath = csvFilePathTextBox.Text;
 
-            if (!string.IsNullOrEmpty(csvFilePath) && System.IO.File.Exists(csvFilePath))
+            if (!string.IsNullOrEmpty(csvFilePath))
             {
-
-                // Call method to read CSV file data
-                ReadExtractedData(csvFilePath);
+                if (File.Exists(csvFilePath))
+                {
+                    // Call method to read CSV file data
+                    ReadExtractedData(csvFilePath);
+                }
+                else
+                {
+                    MessageBox.Show("File does not exist at the specified path!");
+                }               
             }
             else
             {
-                MessageBox.Show("Please enter a valid Excel file path, or use Excel to make the graphs manually !!!");
+                MessageBox.Show("Please enter a valid file path, or use Excel to make the graphs manually !!!");
             }
         }
            
