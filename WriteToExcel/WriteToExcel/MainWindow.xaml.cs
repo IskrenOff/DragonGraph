@@ -94,6 +94,7 @@ namespace WriteToExcel
             {
                 contentArea.Content = new WriteToExcel.ViewModels.SlideForceView();
             }
+
         }
 
         //Velocity graph view

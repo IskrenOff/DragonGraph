@@ -31,14 +31,25 @@ namespace WriteToExcel.ViewModels
             double[] dataY = slideForce.ToArray();
             double[] dataX = timeStamp.ToArray();
 
+            var plt = new ScottPlot.Plot(600, 400);
+
+            plt.XLabel("Horizontal Axis");
+            plt.AddSignal(DataGen.Sin(51));
+            plt.AddSignal(DataGen.Cos(51));
+            plt.Title("My Plot Title");
+
+            SlideForce.Render();
             SlideForce.Plot.AddScatter(dataX, dataY);
             SlideForce.Refresh();
+
         }
 
         public SlideForceView()
         {
             InitializeComponent();
             ProcessData();
-        }       
+
+        }    
+       
     }
 }
