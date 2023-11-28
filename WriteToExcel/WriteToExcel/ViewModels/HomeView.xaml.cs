@@ -98,7 +98,7 @@ namespace WriteToExcel.ViewModels
                 }
 
 
-                //Filling the arrays with the columns data
+                //Filling the Lists with the columns data
                 while (!parser.EndOfData)
                 {
                     string[] fields = parser.ReadFields();
@@ -116,13 +116,7 @@ namespace WriteToExcel.ViewModels
                             cushionForce.Add(value3);
                             cushionPosition.Add(value4);
                             timeStamp.Add(value5);
-                        }
-                        //slideForce.Add(double.Parse(fields[0], NumberStyles.Any , CultureInfo.InvariantCulture));
-                        //velocity.Add(double.Parse(fields[1]));
-                        //cushionForce.Add(double.Parse(fields[2]));
-                        //cushionPosition.Add(double.Parse(fields[3]));
-                        //timeStamp.Add(double.Parse(fields[4]));
-
+                        }                        
                     }
                 }
             }

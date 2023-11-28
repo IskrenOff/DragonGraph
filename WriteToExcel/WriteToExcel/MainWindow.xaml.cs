@@ -95,5 +95,23 @@ namespace WriteToExcel
                 contentArea.Content = new WriteToExcel.ViewModels.SlideForceView();
             }
         }
+
+        //Velocity graph view
+        private void Velocity_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        //Cushion Force graph view
+        private void CushionForce_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        //Cushion Position graph view
+        private void CushionPosition_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

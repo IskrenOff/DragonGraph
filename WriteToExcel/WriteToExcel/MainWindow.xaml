@@ -60,31 +60,62 @@
                                    VerticalAlignment="Center"
                                    Margin="1,0,0,0"/>
                     </StackPanel>
-                    
+
                     <!--Menu Buttons-->
                     <!--Home Button-->
                     <RadioButton x:Name="HomeButton" Style="{StaticResource menuButton}"
                                  Tag="{StaticResource color1}"  Checked="HomeButton_Checked">
-
                         <RadioButton.Content>
                             <StackPanel Orientation="Horizontal">
                                 <fontAwesome:IconImage Icon="Home" Style="{StaticResource menuButtonIcon}"/>
                                 <TextBlock Text="Home" Style="{StaticResource menuButtonText}"/>
                             </StackPanel>
                         </RadioButton.Content>
-
                     </RadioButton>
 
                     <!--Slide force button-->
-
                     <RadioButton x:Name="SlideForce" Style="{StaticResource menuButton}"
                                  Tag="{StaticResource color2}" Checked="SlideForce_Checked">
-
                         <StackPanel Orientation="Horizontal">
                             <fontAwesome:IconImage Icon="LineChart"  Style="{StaticResource menuButtonIcon}"/>
                             <TextBlock Text="Slide Force" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
+                    </RadioButton>
 
+                    <!--Velocity button-->
+                    <RadioButton x:Name="Velocity" Style="{StaticResource menuButton}"
+                                 Tag="{StaticResource color3}" Checked="Velocity_Checked">
+                        <StackPanel Orientation="Horizontal">
+                            <fontAwesome:IconImage Icon="LineChart"  Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Velocity" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+                    </RadioButton>
+
+                    <!--CushionForce button-->
+                    <RadioButton x:Name="CushionForce" Style="{StaticResource menuButton}"
+                                 Tag="{StaticResource color4}" Checked="CushionForce_Checked">
+                        <StackPanel Orientation="Horizontal">
+                            <fontAwesome:IconImage Icon="LineChart"  Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Cushion Force" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+                    </RadioButton>
+
+                    <!--CushionPosition button-->
+                    <RadioButton x:Name="CushionPosition" Style="{StaticResource menuButton}"
+                                 Tag="{StaticResource color5}" Checked="CushionPosition_Checked">
+                        <StackPanel Orientation="Horizontal">
+                            <fontAwesome:IconImage Icon="LineChart"  Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Cushion Position" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+                    </RadioButton>
+
+                    <!--Time Stamp button-->
+                    <RadioButton x:Name="TimeStamp" Style="{StaticResource menuButton}"
+                                 Tag="{StaticResource color6}" Checked="CushionPosition_Checked">
+                        <StackPanel Orientation="Horizontal">
+                            <fontAwesome:IconImage Icon="LineChart"  Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Time Stamp" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
                     </RadioButton>
 
                 </StackPanel>
@@ -149,8 +180,8 @@
                     <ContentControl x:Name="contentArea"
                                     Grid.Row="2"
                                     Margin="25,0,25,25">
-                        
-                        
+
+
                     </ContentControl>
                 </Grid>
             </Border>
