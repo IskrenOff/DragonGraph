@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+
+
 namespace WriteToExcel.ViewModels
 {
     /// <summary>
@@ -23,6 +25,6 @@ namespace WriteToExcel.ViewModels
         public SlideForceView()
         {
             InitializeComponent();
-        }
+        }     
     }
 }
