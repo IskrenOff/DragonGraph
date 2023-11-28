@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ScottPlot;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,9 +23,22 @@ namespace WriteToExcel.ViewModels
     /// </summary>
     public partial class SlideForceView : UserControl
     {
+
+        public void ProcessData()
+        {
+            List<double> slideForce = DataContainer.Instance.SlideForce;
+            List<double> timeStamp = DataContainer.Instance.TimeStamp;
+            double[] dataY = slideForce.ToArray();
+            double[] dataX = timeStamp.ToArray();
+
+            SlideForce.Plot.AddScatter(dataX, dataY);
+            SlideForce.Refresh();
+        }
+
         public SlideForceView()
         {
             InitializeComponent();
-        }     
+            ProcessData();
+        }       
     }
 }

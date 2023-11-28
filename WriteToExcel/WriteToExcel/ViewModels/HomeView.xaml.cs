@@ -18,13 +18,18 @@ using Microsoft.VisualBasic.FileIO;
 using Microsoft.Win32;
 using System.Globalization;
 
+
 namespace WriteToExcel.ViewModels
 {
+
     /// <summary>
     /// Interaction logic for HomeView.xaml
     /// </summary>
     public partial class HomeView : UserControl
     {
+        public List<double> slideForce { get;  set; }
+        public List<double> timeStamp { get; set; }
+
         public HomeView()
         {
             InitializeComponent();
@@ -69,17 +74,15 @@ namespace WriteToExcel.ViewModels
         }
 
 
+
         private void ReadExtractedData(string csvFilePath)
         {
 
-            List<double> slideForce = new List<double>();
+            slideForce = new List<double>();
             List<double> velocity = new List<double>();
             List<double> cushionForce = new List<double>();
             List<double> cushionPosition = new List<double>();
-            List<double> timeStamp = new List<double>();
-
-            //Taking the row data as array of strings
-            //string[] columnNames = { "SlideForce", "Velocity", "CushionForce", "CushionPosition", "TimeStamp" };
+            timeStamp = new List<double>();
 
             using (TextFieldParser parser = new TextFieldParser(csvFilePath))
             {
@@ -116,11 +119,20 @@ namespace WriteToExcel.ViewModels
                             cushionForce.Add(value3);
                             cushionPosition.Add(value4);
                             timeStamp.Add(value5);
-                        }                        
+                        }
                     }
+                }
+
+                if (DataContainer.Instance != null && slideForce.Count > 0 && timeStamp.Count > 0)
+                {
+                    DataContainer.Instance.SlideForce = slideForce;
+                    DataContainer.Instance.TimeStamp = timeStamp;
                 }
             }
         }
+
+        
+
     }
 }
 
