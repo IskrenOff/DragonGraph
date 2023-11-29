@@ -30,17 +30,22 @@ namespace WriteToExcel.ViewModels
             List<double> timeStamp = DataContainer.Instance.TimeStamp;
             double[] dataY = slideForce.ToArray();
             double[] dataX = timeStamp.ToArray();
+          
+            SlideForce.Plot.Clear();
 
-            var plt = new ScottPlot.Plot(600, 400);
+            SlideForce.Plot.XLabel("Time Stamp");
+            SlideForce.Plot.YLabel("Slide Force");
+            SlideForce.Plot.Title("Slide Force Graph");
 
-            plt.XLabel("Horizontal Axis");
-            plt.AddSignal(DataGen.Sin(51));
-            plt.AddSignal(DataGen.Cos(51));
-            plt.Title("My Plot Title");
+            //Customize the layout and labels colors
+            SlideForce.Plot.Style(ScottPlot.Style.Blue1);
+            var bnColor = System.Drawing.ColorTranslator.FromHtml("#1C0E49");
+            SlideForce.Plot.Style(figureBackground: bnColor, dataBackground: bnColor);
+            SlideForce.Plot.XAxis.Label(color: System.Drawing.Color.White);
+            SlideForce.Plot.YAxis.Label(color: System.Drawing.Color.White);
 
+            SlideForce.Plot.AddScatter(dataX, dataY, color: System.Drawing.Color.Aquamarine);           
             SlideForce.Render();
-            SlideForce.Plot.AddScatter(dataX, dataY);
-            SlideForce.Refresh();
 
         }
 
