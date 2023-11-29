@@ -1,4 +1,7 @@
-﻿using ScottPlot;
+﻿using FontAwesome.Sharp;
+using Microsoft.VisualBasic.Devices;
+using ScottPlot;
+using ScottPlot.Plottable;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,6 +27,13 @@ namespace WriteToExcel.ViewModels
     public partial class SlideForceView : UserControl
     {
 
+        public SlideForceView()
+        {
+            InitializeComponent();
+            ProcessData();
+
+        }
+
         public void ProcessData()
         {
             List<double> slideForce = DataContainer.Instance.SlideForce;
@@ -43,9 +53,10 @@ namespace WriteToExcel.ViewModels
             SlideForce.Plot.Style(figureBackground: bnColor, dataBackground: bnColor);
             SlideForce.Plot.XAxis.Label(color: System.Drawing.Color.White);
             SlideForce.Plot.YAxis.Label(color: System.Drawing.Color.White);
-
+            
             SlideForce.Plot.AddScatter(dataX, dataY, color: System.Drawing.Color.Aquamarine);
             SlideForce.Render();
+            SlideForce.Refresh();
 
             //Adding crosshaid lines
             var crosshairVertical = SlideForce.Plot.AddVerticalLine(0);
@@ -59,7 +70,6 @@ namespace WriteToExcel.ViewModels
             var labelVertical = SlideForce.Plot.AddText("0", x: 0, y: 0, color: System.Drawing.Color.Yellow);
             var labelHorizontal = SlideForce.Plot.AddText("0", x: 0, y: 0, color: System.Drawing.Color.Yellow);
 
-
             // Subscribe to the MouseMoved event to update the crosshair position
             SlideForce.MouseMove += (s, e) =>
             {
@@ -70,27 +80,21 @@ namespace WriteToExcel.ViewModels
                 crosshairVertical.X = mouseX;
                 crosshairHorizontal.Y = mouseY;
 
+
+
                 // Update the labels to display crosshair position
                 labelVertical.X = mouseX;
                 labelVertical.Y = mouseY - 500; // adjust label position
                 labelVertical.Label = mouseX.ToString("F2");
 
-                labelHorizontal.X = mouseX + 5; // adjust label position
                 labelHorizontal.Y = mouseY;
+                labelHorizontal.X = mouseX + 5; // adjust label position
                 labelHorizontal.Label = mouseY.ToString("F2");
+
 
                 // Redraw the plot
                 SlideForce.Render();
-
-            };
+            };            
         }
-
-        public SlideForceView()
-        {
-            InitializeComponent();
-            ProcessData();
-
-        }
-
     }
 }
