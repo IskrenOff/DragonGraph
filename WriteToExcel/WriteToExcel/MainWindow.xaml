@@ -75,7 +75,7 @@
 
                     <!--Slide force button-->
                     <RadioButton x:Name="SlideForce" Style="{StaticResource menuButton}"
-                                 Tag="{StaticResource color2}" Checked="SlideForce_Checked">
+                                 Tag="{StaticResource color9}" Checked="SlideForce_Checked">
                         <StackPanel Orientation="Horizontal">
                             <fontAwesome:IconImage Icon="LineChart"  Style="{StaticResource menuButtonIcon}"/>
                             <TextBlock Text="Slide Force" Style="{StaticResource menuButtonText}"/>
@@ -102,19 +102,10 @@
 
                     <!--CushionPosition button-->
                     <RadioButton x:Name="CushionPosition" Style="{StaticResource menuButton}"
-                                 Tag="{StaticResource color5}" Checked="CushionPosition_Checked">
-                        <StackPanel Orientation="Horizontal">
-                            <fontAwesome:IconImage Icon="LineChart"  Style="{StaticResource menuButtonIcon}"/>
-                            <TextBlock Text="Cushion Position" Style="{StaticResource menuButtonText}"/>
-                        </StackPanel>
-                    </RadioButton>
-
-                    <!--Time Stamp button-->
-                    <RadioButton x:Name="TimeStamp" Style="{StaticResource menuButton}"
                                  Tag="{StaticResource color6}" Checked="CushionPosition_Checked">
                         <StackPanel Orientation="Horizontal">
                             <fontAwesome:IconImage Icon="LineChart"  Style="{StaticResource menuButtonIcon}"/>
-                            <TextBlock Text="Time Stamp" Style="{StaticResource menuButtonText}"/>
+                            <TextBlock Text="Cushion Position" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </RadioButton>
 

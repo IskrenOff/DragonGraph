@@ -100,19 +100,34 @@ namespace WriteToExcel
         //Velocity graph view
         private void Velocity_Checked(object sender, RoutedEventArgs e)
         {
+            System.Windows.Controls.RadioButton? velocityButton = sender as System.Windows.Controls.RadioButton;
 
+            if ((velocityButton != null && velocityButton.IsChecked == true))
+            {
+                contentArea.Content = new WriteToExcel.ViewModels.VelocityView();
+            }
         }
 
         //Cushion Force graph view
         private void CushionForce_Checked(object sender, RoutedEventArgs e)
         {
+            System.Windows.Controls.RadioButton? cushionForceButton = sender as System.Windows.Controls.RadioButton;
 
+            if ((cushionForceButton != null && cushionForceButton.IsChecked == true))
+            {
+                contentArea.Content = new WriteToExcel.ViewModels.CushionForceView();
+            }
         }
 
         //Cushion Position graph view
         private void CushionPosition_Checked(object sender, RoutedEventArgs e)
         {
+            System.Windows.Controls.RadioButton? cushionPositionButton = sender as System.Windows.Controls.RadioButton;
 
+            if ((cushionPositionButton != null && cushionPositionButton.IsChecked == true))
+            {
+                contentArea.Content = new WriteToExcel.ViewModels.CushionPositionView();
+            }
         }
     }
 }
