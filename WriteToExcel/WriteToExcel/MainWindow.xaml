@@ -171,6 +171,11 @@
                     <ContentControl x:Name="contentArea"
                                     Grid.Row="2"
                                     Margin="25,0,25,25">
+                        <StackPanel>
+                            <Image Height="400" Width="400" Margin="0,100,580,0" Source="/Images/DragonBackgroundRemoved.png"/>
+                            <TextBlock x:Name="IntroductoryTextBlock" Foreground="{StaticResource color6}" FontSize="19" FontFamily="Georgia" 
+                                       TextWrapping="Wrap" Height="566" Width="566" TextAlignment="Center" HorizontalAlignment="Right" Margin="0,-480,30,0"/>
+                        </StackPanel>
 
 
                     </ContentControl>

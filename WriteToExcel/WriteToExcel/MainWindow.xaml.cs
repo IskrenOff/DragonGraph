@@ -29,7 +29,28 @@ namespace WriteToExcel
     {
         public MainWindow()
         {
-            InitializeComponent();         
+            InitializeComponent();  
+            SetIntroductoryText();
+        }
+
+        private void SetIntroductoryText()
+        {
+            string introductoryText = "Welcome to Dragon graph Beta Version App!\n\n" +
+                "This beta version is designed to read data from CSV files and display it in the form of  " +
+                "interactive graphs. Your feedback is invaluable to me as I continue to improve this application.\n\n" +
+                "Features:\n\n" +
+                "Import CSV files containing data.\n"+
+                "Visualize data using graphs and charts.\n"+
+                "Explore and analyze datasets efficiently.\n\n" +
+                "Bug Reporting:\n\n" +
+                "If you encounter any bugs or issues, I encourage you to reach out to me. Your insights \n"+
+                "helps me enhance the app’s functionality and user experience. \n\n"+
+                "Contact: Iskren.Mirev@meconet.net \n\n"+
+                "Note: This version is still under development. I appreciate your patience and \n" +
+                "support as I work to make this app even better. \n\n" +
+                "Thank you for being a part of this beta release. Your contributions make a difference! \n" ;
+
+            IntroductoryTextBlock.Text = introductoryText;
         }
 
         [DllImport("user32.dll")]
