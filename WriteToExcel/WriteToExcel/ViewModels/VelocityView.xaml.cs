@@ -33,60 +33,69 @@ namespace WriteToExcel.ViewModels
             double[] dataY = velocity.ToArray();
             double[] dataX = timeStamp.ToArray();
 
-            Velocity.Plot.Clear();
-
-            Velocity.Plot.XLabel("Time Stamp");
-            Velocity.Plot.YLabel("Velocity");
-            Velocity.Plot.Title("Velocity Graph");
-
-            //Customize the layout and labels colors
-            Velocity.Plot.Style(ScottPlot.Style.Blue1);
-            var bnColor = System.Drawing.ColorTranslator.FromHtml("#1C0E49");
-            Velocity.Plot.Style(figureBackground: bnColor, dataBackground: bnColor);
-            Velocity.Plot.XAxis.Label(color: System.Drawing.Color.White);
-            Velocity.Plot.YAxis.Label(color: System.Drawing.Color.White);
-
-            Velocity.Plot.AddScatter(dataX, dataY, color: System.Drawing.Color.Aquamarine);
-            Velocity.Render();
-
-
-            //Adding crosshaid lines
-            var crosshairVertical = Velocity.Plot.AddVerticalLine(0);
-            var crosshairHorizontal = Velocity.Plot.AddHorizontalLine(0);
-
-            //Color of the crosshair
-            crosshairVertical.Color = System.Drawing.Color.Red;
-            crosshairHorizontal.Color = System.Drawing.Color.Red;
-
-            // Create text objects to display crosshair position
-            var labelVertical = Velocity.Plot.AddText("0", x: 0, y: 0, color: System.Drawing.Color.Yellow);
-            var labelHorizontal = Velocity.Plot.AddText("0", x: 0, y: 0, color: System.Drawing.Color.Yellow);
-
-            // Subscribe to the MouseMoved event to update the crosshair position
-            Velocity.MouseMove += (s, e) =>
+            if (velocity == null || velocity.Count == 0)
             {
-                // Get the mouse coordinates in plot space
-                (double mouseX, double mouseY) = Velocity.GetMouseCoordinates();
+                Content = new WriteToExcel.ViewModels.NoDataView();
+            }
+            else
+            {
+                Velocity.Plot.Clear();
 
-                // Update the crosshair position with the mouse coordinates
-                crosshairVertical.X = mouseX;
-                crosshairHorizontal.Y = mouseY;
+                Velocity.Plot.XLabel("Time Stamp");
+                Velocity.Plot.YLabel("Velocity");
+                Velocity.Plot.Title("Velocity Graph");
 
+                //Customize the layout and labels colors
+                Velocity.Plot.Style(ScottPlot.Style.Blue1);
+                var bnColor = System.Drawing.ColorTranslator.FromHtml("#1C0E49");
+                Velocity.Plot.Style(figureBackground: bnColor, dataBackground: bnColor);
+                Velocity.Plot.XAxis.Label(color: System.Drawing.Color.White);
+                Velocity.Plot.YAxis.Label(color: System.Drawing.Color.White);
 
-
-                // Update the labels to display crosshair position
-                labelVertical.X = mouseX;
-                labelVertical.Y = mouseY - 500; // adjust label position
-                labelVertical.Label = mouseX.ToString("F2");
-
-                labelHorizontal.Y = mouseY;
-                labelHorizontal.X = mouseX + 5; // adjust label position
-                labelHorizontal.Label = mouseY.ToString("F2");
-
-
-                // Redraw the plot
+                Velocity.Plot.AddScatter(dataX, dataY, color: System.Drawing.Color.Aquamarine);
                 Velocity.Render();
-            };
+
+
+                //Adding crosshaid lines
+                var crosshairVertical = Velocity.Plot.AddVerticalLine(0);
+                var crosshairHorizontal = Velocity.Plot.AddHorizontalLine(0);
+
+                //Color of the crosshair
+                crosshairVertical.Color = System.Drawing.Color.Red;
+                crosshairHorizontal.Color = System.Drawing.Color.Red;
+
+                // Create text objects to display crosshair position
+                var labelVertical = Velocity.Plot.AddText("0", x: 0, y: 0, color: System.Drawing.Color.Yellow);
+                var labelHorizontal = Velocity.Plot.AddText("0", x: 0, y: 0, color: System.Drawing.Color.Yellow);
+
+                // Subscribe to the MouseMoved event to update the crosshair position
+                Velocity.MouseMove += (s, e) =>
+                {
+                    // Get the mouse coordinates in plot space
+                    (double mouseX, double mouseY) = Velocity.GetMouseCoordinates();
+
+                    // Update the crosshair position with the mouse coordinates
+                    crosshairVertical.X = mouseX;
+                    crosshairHorizontal.Y = mouseY;
+
+
+
+                    // Update the labels to display crosshair position
+                    labelVertical.X = mouseX;
+                    labelVertical.Y = mouseY - 500; // adjust label position
+                    labelVertical.Label = mouseX.ToString("F2");
+
+                    labelHorizontal.Y = mouseY;
+                    labelHorizontal.X = mouseX + 5; // adjust label position
+                    labelHorizontal.Label = mouseY.ToString("F2");
+
+
+                    // Redraw the plot
+                    Velocity.Render();
+                };
+            }
+
+           
         }
     }
 }

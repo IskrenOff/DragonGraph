@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\DataNotFound-removebg-preview.png" />
     <None Remove="Images\DragonBackgroundRemoved.png" />
   </ItemGroup>
 
@@ -21,6 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Images\DataNotFound-removebg-preview.png" />
     <Resource Include="Images\DragonBackgroundRemoved.png" />
   </ItemGroup>
 
