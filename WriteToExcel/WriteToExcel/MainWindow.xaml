@@ -171,10 +171,7 @@
                     <ContentControl x:Name="contentArea"
                                     Grid.Row="2"
                                     Margin="25,0,25,25">
-                        <StackPanel>
-                            <Image Height="400" Width="400" Margin="0,100,580,0" Source="/Images/DragonBackgroundRemoved.png"/>
-                        </StackPanel>
-
+                        <Image Margin="121,-18,121,-18" Source="/Images/DragonBackgroundRemoved.png"/>
 
                     </ContentControl>
                 </Grid>
