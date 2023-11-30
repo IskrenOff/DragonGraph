@@ -28,6 +28,9 @@ namespace WriteToExcel.ViewModels
     public partial class HomeView : UserControl
     {
         public List<double> slideForce { get;  set; }
+        public List<double> velocity {  get; set; }
+        public List<double> cushionForce {  get; set; }
+        public List<double> cushionPosition {  get; set; }
         public List<double> timeStamp { get; set; }
 
         public HomeView()
@@ -79,9 +82,9 @@ namespace WriteToExcel.ViewModels
         {
 
             slideForce = new List<double>();
-            List<double> velocity = new List<double>();
-            List<double> cushionForce = new List<double>();
-            List<double> cushionPosition = new List<double>();
+            velocity = new List<double>();
+            cushionForce = new List<double>();
+            cushionPosition = new List<double>();
             timeStamp = new List<double>();
 
             using (TextFieldParser parser = new TextFieldParser(csvFilePath))
@@ -123,9 +126,12 @@ namespace WriteToExcel.ViewModels
                     }
                 }
 
-                if (DataContainer.Instance != null && slideForce.Count > 0 && timeStamp.Count > 0)
+                if (DataContainer.Instance != null && slideForce.Count > 0 && timeStamp.Count > 0 && velocity.Count > 0 && cushionForce.Count > 0 && cushionPosition.Count > 0)
                 {
                     DataContainer.Instance.SlideForce = slideForce;
+                    DataContainer.Instance.Velocity = velocity;
+                    DataContainer.Instance.CushionForce = cushionForce;
+                    DataContainer.Instance.CushionPosition = cushionPosition;
                     DataContainer.Instance.TimeStamp = timeStamp;
                 }
             }

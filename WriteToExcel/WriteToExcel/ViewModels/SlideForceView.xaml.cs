@@ -63,8 +63,8 @@ namespace WriteToExcel.ViewModels
             var crosshairHorizontal = SlideForce.Plot.AddHorizontalLine(0);
 
             //Color of the crosshair
-            crosshairVertical.Color = System.Drawing.Color.HotPink;
-            crosshairHorizontal.Color = System.Drawing.Color.HotPink;
+            crosshairVertical.Color = System.Drawing.Color.Red;
+            crosshairHorizontal.Color = System.Drawing.Color.Red;
 
             // Create text objects to display crosshair position
             var labelVertical = SlideForce.Plot.AddText("0", x: 0, y: 0, color: System.Drawing.Color.Yellow);

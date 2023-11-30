@@ -11,12 +11,18 @@ namespace WriteToExcel
         private static DataContainer _instance;
 
         public List<double> SlideForce { get; set; }
+        public List<double> Velocity { get; set; }
+        public List<double> CushionForce { get; set; }
+        public List<double> CushionPosition { get; set; }
         public List<double> TimeStamp { get; set; }
 
         // Private constructor to prevent external instantiation
         private DataContainer()
         {
             SlideForce = new List<double>();
+            Velocity = new List<double>();
+            CushionForce = new List<double>();
+            CushionPosition = new List<double>();
             TimeStamp = new List<double>();
         }
 
