@@ -8,19 +8,24 @@
              mc:Ignorable="d" 
              d:DesignHeight="650" d:DesignWidth="1050">
     <Grid>
-
-
+        <!--Dragon image logo -->
+        <Image Height="400" Width="400" Margin="0,-150,580,0" Source="/Images/DragonBackgroundRemoved.png"/>
+        
+        <!--Description and info-->
+        <TextBlock x:Name="IntroductoryTextBlock" Foreground="{StaticResource color6}" FontSize="18" FontFamily="Georgia" 
+                          TextWrapping="Wrap" Height="450" Width="566" TextAlignment="Center" HorizontalAlignment="Right" Margin="0,-150,30,0"/>
+        
         <!-- File path field -->
         <TextBox x:Name="csvFilePathTextBox"  FontSize="18" FontFamily="Georgia" Background="{StaticResource titleColor3}" 
                  Grid.Row="0" Width="Auto" Height="20"
-                 HorizontalAlignment="Stretch"  Margin="200,0,100,0"/>
+                 HorizontalAlignment="Stretch"  Margin="200,400,100,0"/>
 
         <!--Text description for the field-->
-        <TextBox FontSize="20" TextWrapping="Wrap" TextAlignment="Center" Text="File path" Foreground="{StaticResource plainTextColor1}"
-                 Margin="90" HorizontalAlignment="Left" Height="25" Width="100" FontFamily="Georgia" FontWeight="Medium" Background="Transparent" BorderThickness="0"/>
+        <TextBox FontSize="20" TextWrapping="Wrap" TextAlignment="Center" Text="File path" Foreground="{StaticResource plainTextColor1}" 
+                 Margin="90,400,0,0" HorizontalAlignment="Left" Height="25" Width="100" FontFamily="Georgia" FontWeight="Medium" Background="Transparent" BorderThickness="0"/>
 
         <!--Button for Run the data extraction-->
-        <Button  HorizontalAlignment="Left" Margin="300,200,0,0" VerticalAlignment="Center" FontSize="20" FontFamily="Georgia" Height="40" Width="150" 
+        <Button  HorizontalAlignment="Left" Margin="300,500,0,0" VerticalAlignment="Center" FontSize="20" FontFamily="Georgia" Height="40" Width="150" 
                 Background="{StaticResource color1}" BorderBrush="{StaticResource color3}" OpacityMask="{DynamicResource color10}" Click="ExtractButton_Click" >
 
             <Button.Resources>
@@ -35,7 +40,7 @@
         </Button>
         
         <!--Button to find CSV file location path with windows explorer-->
-        <Button  HorizontalAlignment="Left" Margin="600,200,0,0" VerticalAlignment="Center" FontSize="20" FontFamily="Georgia" Height="40" Width="150" 
+        <Button  HorizontalAlignment="Left" Margin="600,500,0,0" VerticalAlignment="Center" FontSize="20" FontFamily="Georgia" Height="40" Width="150" 
         Background="{StaticResource color3}" BorderBrush="{StaticResource color3}" OpacityMask="{DynamicResource color10}" Click="FindCSVFile_Click" >
 
             <Button.Resources>
