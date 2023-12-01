@@ -10,11 +10,11 @@
     <Grid>
         <!--Dragon image logo -->
         <Image Height="400" Width="400" Margin="0,-150,580,0" Source="/Images/DragonBackgroundRemoved.png"/>
-        
+
         <!--Description and info-->
         <TextBlock x:Name="IntroductoryTextBlock" Foreground="{StaticResource color6}" FontSize="18" FontFamily="Georgia" 
                           TextWrapping="Wrap" Height="450" Width="566" TextAlignment="Center" HorizontalAlignment="Right" Margin="0,-150,30,0"/>
-        
+
         <!-- File path field -->
         <TextBox x:Name="csvFilePathTextBox"  FontSize="18" FontFamily="Georgia" Background="{StaticResource titleColor3}" 
                  Grid.Row="0" Width="Auto" Height="20"
@@ -25,7 +25,7 @@
                  Margin="90,400,0,0" HorizontalAlignment="Left" Height="25" Width="100" FontFamily="Georgia" FontWeight="Medium" Background="Transparent" BorderThickness="0"/>
 
         <!--Button for Run the data extraction-->
-        <Button  HorizontalAlignment="Left" Margin="300,500,0,0" VerticalAlignment="Center" FontSize="20" FontFamily="Georgia" Height="40" Width="150" 
+        <Button  HorizontalAlignment="Left" Margin="250,500,0,0" VerticalAlignment="Center" FontSize="20" FontFamily="Georgia" Height="40" Width="150" 
                 Background="{StaticResource color1}" BorderBrush="{StaticResource color3}" OpacityMask="{DynamicResource color10}" Click="ExtractButton_Click" >
 
             <Button.Resources>
@@ -38,9 +38,9 @@
                 <fontAwesome:IconImage Icon="Database" Height="20" Width="20" Margin="0,-20,100,10"/>
             </StackPanel>
         </Button>
-        
+
         <!--Button to find CSV file location path with windows explorer-->
-        <Button  HorizontalAlignment="Left" Margin="600,500,0,0" VerticalAlignment="Center" FontSize="20" FontFamily="Georgia" Height="40" Width="150" 
+        <Button  HorizontalAlignment="Left" Margin="450,500,0,0" VerticalAlignment="Center" FontSize="20" FontFamily="Georgia" Height="40" Width="150" 
         Background="{StaticResource color3}" BorderBrush="{StaticResource color3}" OpacityMask="{DynamicResource color10}" Click="FindCSVFile_Click" >
 
             <Button.Resources>
@@ -51,6 +51,22 @@
             <StackPanel>
                 <TextBlock Text="Find CSV file" FontFamily="Georgia" FontSize="15" Width="89" Margin="25,10,0,0" Background="Transparent" Focusable="False"/>
                 <fontAwesome:IconImage Icon="MagnifyingGlass" Height="20" Width="20" Margin="0,-20,100,10"/>
+            </StackPanel>
+        </Button>
+
+        <!--Button to create Excel spreadsheet-->
+        <Button  HorizontalAlignment="Left" Margin="650,500,0,0" VerticalAlignment="Center" FontSize="20" FontFamily="Georgia" Height="40" Width="150" 
+                 Background="{StaticResource color9}" BorderBrush="{StaticResource color3}" OpacityMask="{DynamicResource color10}" Click="CreateExcel_Click" >
+
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
+            <StackPanel>
+                <TextBlock Text="Create Excel spreadsheet" TextWrapping="Wrap" FontFamily="Georgia" 
+                           Margin="30,1,0,0" FontSize="15" Width="92" Background="Transparent" Focusable="False" Height="35"/>
+                <fontAwesome:IconImage Icon="FileExcel" Height="20" Width="20" Margin="0,-28,100,10"/>
             </StackPanel>
         </Button>
 

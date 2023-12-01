@@ -17,6 +17,8 @@ using System.Security.Cryptography.X509Certificates;
 using Microsoft.VisualBasic.FileIO;
 using Microsoft.Win32;
 using System.Globalization;
+using System.Collections;
+using ClosedXML.Excel;
 
 
 namespace WriteToExcel.ViewModels
@@ -36,6 +38,13 @@ namespace WriteToExcel.ViewModels
         public HomeView()
         {
             InitializeComponent();
+
+            slideForce = new List<double>();
+            velocity = new List<double>();
+            cushionForce = new List<double>();
+            cushionPosition = new List<double>();
+            timeStamp = new List<double>();
+
             SetIntroductoryText();
         }
 
@@ -101,13 +110,7 @@ namespace WriteToExcel.ViewModels
 
         private void ReadExtractedData(string csvFilePath)
         {
-
-            slideForce = new List<double>();
-            velocity = new List<double>();
-            cushionForce = new List<double>();
-            cushionPosition = new List<double>();
-            timeStamp = new List<double>();
-
+           
             using (TextFieldParser parser = new TextFieldParser(csvFilePath))
             {
                 parser.TextFieldType = FieldType.Delimited;
@@ -158,8 +161,60 @@ namespace WriteToExcel.ViewModels
             }
         }
 
-        
+        private void CreateExcel_Click(object sender, RoutedEventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Excel Files|*.xlsx";
+            saveFileDialog.Title = "Save Excel File";
+            saveFileDialog.ShowDialog();
 
+            if (!string.IsNullOrEmpty(saveFileDialog.FileName))
+            {
+                // Create a new Excel package
+                using (var workBook = new XLWorkbook())
+                {
+                    // Add a new worksheet
+                    var excelSheet = workBook.Worksheets.Add("Data");
+
+                    // Define the column headers (if needed)
+                    excelSheet.Cell(1, 1).Value = "Slide Force";
+                    excelSheet.Cell(1, 2).Value = "Velocity";
+                    excelSheet.Cell(1, 3).Value = "Cushion Force";
+                    excelSheet.Cell(1, 4).Value = "Cushion Position";
+                    excelSheet.Cell(1, 5).Value = "Time Stamp";
+
+
+                    // Check if data lists are not null and have the same length
+                    if (slideForce != null && velocity != null &&
+                        cushionForce != null && cushionPosition != null &&timeStamp != null &&
+                        slideForce.Count == velocity.Count &&
+                        velocity.Count == cushionForce.Count &&
+                        cushionForce.Count == cushionPosition.Count &&
+                        cushionPosition.Count == timeStamp.Count)
+                    {
+                        // Write data vertically
+                        for (int i = 0; i < slideForce.Count; i++)
+                        {
+                            excelSheet.Cell(i + 2, 1).Value = slideForce[i];
+                            excelSheet.Cell(i + 2, 2).Value = velocity[i];
+                            excelSheet.Cell(i + 2, 3).Value = cushionForce[i];
+                            excelSheet.Cell(i + 2, 4).Value = cushionPosition[i];
+                            excelSheet.Cell(i + 2, 5).Value = timeStamp[i];
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Data lists are null or have different lengths.");
+                    }
+
+                    // Save the Excel package to the chosen file path
+                    var file = new FileInfo(saveFileDialog.FileName);
+                    workBook.SaveAs(saveFileDialog.FileName);
+                }
+
+                MessageBox.Show("Excel file saved successfully.");
+            }
+        }
     }
 }
 
