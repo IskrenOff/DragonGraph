@@ -53,7 +53,7 @@ namespace WriteToExcel.ViewModels
                 Velocity.Plot.XAxis.Label(color: System.Drawing.Color.White);
                 Velocity.Plot.YAxis.Label(color: System.Drawing.Color.White);
 
-                Velocity.Plot.AddScatter(dataX, dataY, color: System.Drawing.Color.Aquamarine);
+                Velocity.Plot.AddScatter(dataX, dataY, color: System.Drawing.Color.Aquamarine).Smooth = true;
                 Velocity.Render();
 
                 Crosshair cross = Velocity.Plot.AddCrosshair(25, .5);

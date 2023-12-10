@@ -53,7 +53,7 @@ namespace WriteToExcel.ViewModels
                 CushionPosition.Plot.XAxis.Label(color: System.Drawing.Color.White);
                 CushionPosition.Plot.YAxis.Label(color: System.Drawing.Color.White);
 
-                CushionPosition.Plot.AddScatter(dataX, dataY, color: System.Drawing.Color.Orange);
+                CushionPosition.Plot.AddScatter(dataX, dataY, color: System.Drawing.Color.Orange).Smooth = true;
                 CushionPosition.Render();
 
                 Crosshair cross = CushionPosition.Plot.AddCrosshair(25, .5);

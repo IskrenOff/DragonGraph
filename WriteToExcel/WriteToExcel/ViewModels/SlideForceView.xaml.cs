@@ -62,7 +62,7 @@ namespace WriteToExcel.ViewModels
                 SlideForce.Plot.XAxis.Label(color: System.Drawing.Color.White);
                 SlideForce.Plot.YAxis.Label(color: System.Drawing.Color.White);
 
-                SlideForce.Plot.AddScatter(dataX, dataY, color: System.Drawing.Color.Aquamarine);
+                SlideForce.Plot.AddScatter(dataX, dataY, color: System.Drawing.Color.Aquamarine).Smooth=true;
                 SlideForce.Render();
 
                 Crosshair cross = SlideForce.Plot.AddCrosshair(25, .5);
