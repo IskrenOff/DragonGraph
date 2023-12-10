@@ -90,15 +90,22 @@ namespace WriteToExcel.ViewModels
 
             if (!string.IsNullOrEmpty(csvFilePath))
             {
-                if (File.Exists(csvFilePath))
+                if (slideForce.SequenceEqual(slideForce) && slideForce.Count != 0)
                 {
-                    // Call method to read CSV file data
-                    ReadExtractedData(csvFilePath);
+                    MessageBox.Show("The data is already collected !");
                 }
                 else
                 {
-                    MessageBox.Show("File does not exist at the specified path!");
-                }
+                    if (File.Exists(csvFilePath))
+                    {
+                        // Call method to read CSV file data
+                        ReadExtractedData(csvFilePath);
+                    }
+                    else
+                    {
+                        MessageBox.Show("File does not exist at the specified path!");
+                    }
+                }               
             }
             else
             {
@@ -183,6 +190,11 @@ namespace WriteToExcel.ViewModels
                     excelSheet.Cell(1, 4).Value = "Cushion Position";
                     excelSheet.Cell(1, 5).Value = "Time Stamp";
 
+                    List<double> slideForce = DataContainer.Instance.SlideForce;
+                    List<double> velocity = DataContainer.Instance.Velocity;
+                    List<double> cushionForce = DataContainer.Instance.CushionForce;
+                    List<double> cushionPosition = DataContainer.Instance.CushionPosition;
+                    List<double> timeStamp = DataContainer.Instance.TimeStamp;
 
                     // Check if data lists are not null and have the same length
                     if (slideForce != null && velocity != null &&
