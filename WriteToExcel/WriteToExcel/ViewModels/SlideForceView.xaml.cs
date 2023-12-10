@@ -41,6 +41,7 @@ namespace WriteToExcel.ViewModels
             List<double> timeStamp = DataContainer.Instance.TimeStamp;
             double[] dataY = slideForce.ToArray();
             double[] dataX = timeStamp.ToArray();
+            
 
             if(slideForce.Count == 0 || slideForce == null) 
             {
@@ -62,7 +63,7 @@ namespace WriteToExcel.ViewModels
                 SlideForce.Plot.XAxis.Label(color: System.Drawing.Color.White);
                 SlideForce.Plot.YAxis.Label(color: System.Drawing.Color.White);
 
-                SlideForce.Plot.AddScatter(dataX, dataY, color: System.Drawing.Color.Aquamarine).Smooth=true;
+                SlideForce.Plot.AddScatter(dataX, dataY, color: System.Drawing.Color.Aquamarine, markerSize: 3).Smooth=true;
                 SlideForce.Render();
 
                 Crosshair cross = SlideForce.Plot.AddCrosshair(25, .5);
