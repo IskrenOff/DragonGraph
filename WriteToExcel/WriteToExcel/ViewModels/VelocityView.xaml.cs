@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ScottPlot.Plottable;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -55,18 +56,7 @@ namespace WriteToExcel.ViewModels
                 Velocity.Plot.AddScatter(dataX, dataY, color: System.Drawing.Color.Aquamarine);
                 Velocity.Render();
 
-
-                //Adding crosshaid lines
-                var crosshairVertical = Velocity.Plot.AddVerticalLine(0);
-                var crosshairHorizontal = Velocity.Plot.AddHorizontalLine(0);
-
-                //Color of the crosshair
-                crosshairVertical.Color = System.Drawing.Color.Red;
-                crosshairHorizontal.Color = System.Drawing.Color.Red;
-
-                // Create text objects to display crosshair position
-                var labelVertical = Velocity.Plot.AddText("0", x: 0, y: 0, color: System.Drawing.Color.Yellow);
-                var labelHorizontal = Velocity.Plot.AddText("0", x: 0, y: 0, color: System.Drawing.Color.Yellow);
+                Crosshair cross = Velocity.Plot.AddCrosshair(25, .5);
 
                 // Subscribe to the MouseMoved event to update the crosshair position
                 Velocity.MouseMove += (s, e) =>
@@ -75,22 +65,9 @@ namespace WriteToExcel.ViewModels
                     (double mouseX, double mouseY) = Velocity.GetMouseCoordinates();
 
                     // Update the crosshair position with the mouse coordinates
-                    crosshairVertical.X = mouseX;
-                    crosshairHorizontal.Y = mouseY;
+                    cross.X = mouseX;
+                    cross.Y = mouseY;
 
-
-
-                    // Update the labels to display crosshair position
-                    labelVertical.X = mouseX;
-                    labelVertical.Y = mouseY - 500; // adjust label position
-                    labelVertical.Label = mouseX.ToString("F2");
-
-                    labelHorizontal.Y = mouseY;
-                    labelHorizontal.X = mouseX + 5; // adjust label position
-                    labelHorizontal.Label = mouseY.ToString("F2");
-
-
-                    // Redraw the plot
                     Velocity.Render();
                 };
             }
