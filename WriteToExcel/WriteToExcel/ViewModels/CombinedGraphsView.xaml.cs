@@ -22,6 +22,8 @@ namespace DragonGraph.ViewModels
     /// </summary>
     public partial class CombinedGraphsView : UserControl
     {
+        
+
         public CombinedGraphsView()
         {
             InitializeComponent();
@@ -30,12 +32,7 @@ namespace DragonGraph.ViewModels
         public void ProcessData()
         {
             List<double> slideForce = DataContainer.Instance.SlideForce;
-            List<double> velocity = DataContainer.Instance.Velocity;
-            List<double> timeStamp = DataContainer.Instance.TimeStamp;
-            double[] slideForceY = slideForce.ToArray();
-            double[] dataX = timeStamp.ToArray();
-
-
+          
 
             if (slideForce.Count == 0 || slideForce == null)
             {
@@ -45,6 +42,7 @@ namespace DragonGraph.ViewModels
             else
             {
                 CombinedGraphs.Plot.Clear();
+                CombinedGraphs.Refresh();
 
                 CombinedGraphs.Plot.XLabel("X Axis ");
                 CombinedGraphs.Plot.YLabel("Y Axis");
@@ -57,8 +55,7 @@ namespace DragonGraph.ViewModels
                 CombinedGraphs.Plot.XAxis.Label(color: System.Drawing.Color.White);
                 CombinedGraphs.Plot.YAxis.Label(color: System.Drawing.Color.White);
 
-                CombinedGraphs.Plot.AddScatter(dataX, slideForceY, color: System.Drawing.Color.Aquamarine, markerSize: 3).Smooth = true;
-                CombinedGraphs.Render();
+                
 
                 Crosshair cross = CombinedGraphs.Plot.AddCrosshair(25, .5);
 
@@ -69,9 +66,67 @@ namespace DragonGraph.ViewModels
                     cross.X = mouseX;
                     cross.Y = mouseY;
 
+                    
                     CombinedGraphs.Render();
                 };
             }
+        }
+
+        ScatterPlot slideForcePlot;
+        ScatterPlot velocityPlot;
+        ScatterPlot cushionForcePlot;
+        ScatterPlot cushionPositionPlot;
+        ScatterPlot timeStampPlot;
+
+        private void SlideForce_Checked(object sender, RoutedEventArgs e)
+        {
+            List<double> slideForce = DataContainer.Instance.SlideForce;
+            List<double> timeStamp = DataContainer.Instance.TimeStamp;
+            double[] slideForceY = slideForce.ToArray();
+            double[] dataX = timeStamp.ToArray();
+            
+            slideForcePlot = CombinedGraphs.Plot.AddScatter(dataX, slideForceY,markerSize: 3);
+            slideForcePlot.Smooth = true;
+            CombinedGraphs.Render();
+        }
+
+        private void SlideForce_Unchecked(object sender, RoutedEventArgs e)
+        {
+            CombinedGraphs.Plot.Remove(slideForcePlot);
+        }
+
+        private void Velocity_Checked(object sender, RoutedEventArgs e)
+        {
+            List<double> velocity = DataContainer.Instance.Velocity;
+            List<double> timeStamp = DataContainer.Instance.TimeStamp;
+            double[] velocityY = velocity.ToArray();
+            double[] dataX = timeStamp.ToArray();
+
+            velocityPlot = CombinedGraphs.Plot.AddScatter(dataX, velocityY, markerSize: 3);
+            velocityPlot.Smooth = true;
+            CombinedGraphs.Render();
+        }
+
+        private void Velocity_Unchecked(object sender, RoutedEventArgs e)
+        {
+            CombinedGraphs.Plot.Remove(velocityPlot);
+        }
+
+        private void CushionForce_Checked(object sender, RoutedEventArgs e)
+        {
+            List<double> cushionForce = DataContainer.Instance.CushionForce;
+            List<double> timeStamp = DataContainer.Instance.TimeStamp;
+            double[] cushionForceY = cushionForce.ToArray();
+            double[] dataX = timeStamp.ToArray();
+
+            cushionForcePlot = CombinedGraphs.Plot.AddScatter(dataX, cushionForceY, markerSize: 3);
+            cushionForcePlot.Smooth = true;
+            CombinedGraphs.Render();
+        }
+
+        private void CushionForce_Unchecked(object sender, RoutedEventArgs e)
+        {
+            CombinedGraphs.Plot.Remove(cushionForcePlot);
         }
     }
 }

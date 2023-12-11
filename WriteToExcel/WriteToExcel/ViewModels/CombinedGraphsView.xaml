@@ -14,9 +14,9 @@
                   HorizontalAlignment="Left" VerticalAlignment="Top" Width="130" Height="20">
             <ComboBoxItem FontSize="12">
                 <StackPanel >
-                    <CheckBox Content="Slide Force"/>
-                    <CheckBox Content="Velocity"/>
-                    <CheckBox Content="Cushion Force"/>
+                    <CheckBox Content="Slide Force" Checked="SlideForce_Checked" Unchecked="SlideForce_Unchecked"/>
+                    <CheckBox Content="Velocity" Checked="Velocity_Checked" Unchecked="Velocity_Unchecked"/>
+                    <CheckBox Content="Cushion Force" Checked="CushionForce_Checked" Unchecked="CushionForce_Unchecked"/>
                     <CheckBox Content="Cushion Position"/>
                     <CheckBox Content="Time Stamp"/>
                 </StackPanel>
