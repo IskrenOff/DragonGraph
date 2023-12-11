@@ -74,6 +74,15 @@
                     </RadioButton>
 
                     <!--Slide force button-->
+                    <RadioButton x:Name="CombinedGraphs" Style="{StaticResource menuButton}"
+                         Tag="{StaticResource color4}" >
+                        <StackPanel Orientation="Horizontal">
+                            <fontAwesome:IconImage Icon="Dragon"  Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Combined Graphs" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+                    </RadioButton>
+
+                    <!--Slide force button-->
                     <RadioButton x:Name="SlideForce" Style="{StaticResource menuButton}"
                                  Tag="{StaticResource color9}" Checked="SlideForce_Checked">
                         <StackPanel Orientation="Horizontal">
