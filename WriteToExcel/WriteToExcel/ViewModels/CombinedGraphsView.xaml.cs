@@ -28,6 +28,7 @@ namespace DragonGraph.ViewModels
         {
             InitializeComponent();
             ProcessData();
+
         }
         public void ProcessData()
         {
@@ -93,6 +94,7 @@ namespace DragonGraph.ViewModels
         private void SlideForce_Unchecked(object sender, RoutedEventArgs e)
         {
             CombinedGraphs.Plot.Remove(slideForcePlot);
+            CombinedGraphs.Refresh();
         }
 
         private void Velocity_Checked(object sender, RoutedEventArgs e)
@@ -110,6 +112,7 @@ namespace DragonGraph.ViewModels
         private void Velocity_Unchecked(object sender, RoutedEventArgs e)
         {
             CombinedGraphs.Plot.Remove(velocityPlot);
+            CombinedGraphs.Refresh();
         }
 
         private void CushionForce_Checked(object sender, RoutedEventArgs e)
@@ -127,6 +130,25 @@ namespace DragonGraph.ViewModels
         private void CushionForce_Unchecked(object sender, RoutedEventArgs e)
         {
             CombinedGraphs.Plot.Remove(cushionForcePlot);
+            CombinedGraphs.Refresh();
+        }
+
+        private void CushionPosition_Checked(object sender, RoutedEventArgs e)
+        {
+            List<double> cushionPosition = DataContainer.Instance.CushionPosition;
+            List<double> timeStamp = DataContainer.Instance.TimeStamp;
+            double[] cushionPositionY = cushionPosition.ToArray();
+            double[] dataX = timeStamp.ToArray();
+
+            cushionPositionPlot = CombinedGraphs.Plot.AddScatter(dataX, cushionPositionY, markerSize: 3);
+            cushionPositionPlot.Smooth = true;
+            CombinedGraphs.Render();
+        }
+
+        private void CushionPosition_Unchecked(object sender, RoutedEventArgs e)
+        {
+            CombinedGraphs.Plot.Remove(cushionPositionPlot);
+            CombinedGraphs.Refresh();
         }
     }
 }
