@@ -130,9 +130,9 @@
                         <!--Control bar-->
                         <RowDefinition Height="30"/>
                         <!--Header / Caption-->
-                        <RowDefinition Height="35"/>
+                        <RowDefinition Height="0"/>
                         <!--Content section / Child views-->
-                        <RowDefinition Height="*"/>
+                        <RowDefinition/>
                     </Grid.RowDefinitions>
 
                     <!--Control bar-->
