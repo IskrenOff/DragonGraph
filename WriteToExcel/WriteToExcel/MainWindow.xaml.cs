@@ -130,5 +130,16 @@ namespace WriteToExcel
                 contentArea.Content = new WriteToExcel.ViewModels.CushionPositionView();
             }
         }
+
+        //Combined graphs view
+        private void CombinedGraphs_Checked(object sender, RoutedEventArgs e)
+        {
+            System.Windows.Controls.RadioButton? combinedGraphsButton = sender as System.Windows.Controls.RadioButton;
+
+            if ((combinedGraphsButton != null && combinedGraphsButton.IsChecked == true))
+            {
+                contentArea.Content = new DragonGraph.ViewModels.CombinedGraphsView();
+            }
+        }
     }
 }

@@ -75,7 +75,7 @@
 
                     <!--Slide force button-->
                     <RadioButton x:Name="CombinedGraphs" Style="{StaticResource menuButton}"
-                         Tag="{StaticResource color4}" >
+                         Tag="{StaticResource color4}" Checked="CombinedGraphs_Checked" >
                         <StackPanel Orientation="Horizontal">
                             <fontAwesome:IconImage Icon="Dragon"  Style="{StaticResource menuButtonIcon}"/>
                             <TextBlock Text="Combined Graphs" Style="{StaticResource menuButtonText}"/>
@@ -102,7 +102,7 @@
 
                     <!--CushionForce button-->
                     <RadioButton x:Name="CushionForce" Style="{StaticResource menuButton}"
-                                 Tag="{StaticResource color4}" Checked="CushionForce_Checked">
+                                 Tag="{StaticResource color10}" Checked="CushionForce_Checked">
                         <StackPanel Orientation="Horizontal">
                             <fontAwesome:IconImage Icon="LineChart"  Style="{StaticResource menuButtonIcon}"/>
                             <TextBlock Text="Cushion Force" Style="{StaticResource menuButtonText}"/>
