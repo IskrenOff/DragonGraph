@@ -43,7 +43,8 @@ namespace WriteToExcel.ViewModels
             double[] dataX = timeStamp.ToArray();
             
 
-            if(slideForce.Count == 0 || slideForce == null) 
+
+            if (slideForce.Count == 0 || slideForce == null) 
             {
                 Content = new WriteToExcel.ViewModels.NoDataView();                              
             }
@@ -77,9 +78,8 @@ namespace WriteToExcel.ViewModels
 
                     SlideForce.Render();
                 };
-            }
-
-                       
+            }                      
         }
+        
     }
 }

@@ -130,10 +130,5 @@ namespace WriteToExcel
                 contentArea.Content = new WriteToExcel.ViewModels.CushionPositionView();
             }
         }
-
-        //private void ShowNoDataMessage ()
-        //{
-        //    System.Windows.MessageBox.Show("No data available to display.", "No Data", MessageBoxButton.OK, MessageBoxImage.Information);
-        //}
     }
 }

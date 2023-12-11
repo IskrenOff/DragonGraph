@@ -12,4 +12,5 @@
     <Grid RenderTransformOrigin="0.523,0.428">
         <ScottPlot:WpfPlot x:Name="SlideForce" />
     </Grid>
+
 </UserControl>

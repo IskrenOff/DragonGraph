@@ -113,6 +113,7 @@
 
             </Border>
 
+
             <!-- Main Section-->
             <Border CornerRadius="0,10,10,0"
                     Grid.Column="1">
@@ -172,7 +173,6 @@
                                     Grid.Row="2"
                                     Margin="25,0,25,25">
                         <Image Margin="121,-18,121,-18" Source="/Images/DragonBackgroundRemoved.png"/>
-
                     </ContentControl>
                 </Grid>
             </Border>
