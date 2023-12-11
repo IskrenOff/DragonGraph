@@ -10,7 +10,18 @@
 
     <Grid RenderTransformOrigin="0.523,0.428">
         <ScottPlot:WpfPlot x:Name="CombinedGraphs" Margin="0,20,0,0" />
-        <ComboBox HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="180" Height="20"/>
+        <ComboBox x:Name="myComboBox" HorizontalContentAlignment="Center" Text="Select a Graph" IsEditable="True" IsReadOnly="True" FontSize="12" FontFamily="Georgia"
+                  HorizontalAlignment="Left" VerticalAlignment="Top" Width="130" Height="20">
+            <ComboBoxItem FontSize="12">
+                <StackPanel >
+                    <CheckBox Content="Slide Force"/>
+                    <CheckBox Content="Velocity"/>
+                    <CheckBox Content="Cushion Force"/>
+                    <CheckBox Content="Cushion Position"/>
+                    <CheckBox Content="Time Stamp"/>
+                </StackPanel>
+            </ComboBoxItem>
+        </ComboBox>
 
     </Grid>
 </UserControl>
