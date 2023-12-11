@@ -25,6 +25,7 @@ namespace DragonGraph.ViewModels
         public CombinedGraphsView()
         {
             InitializeComponent();
+            ProcessData();
         }
         public void ProcessData()
         {
@@ -46,7 +47,7 @@ namespace DragonGraph.ViewModels
                 CombinedGraphs.Plot.Clear();
 
                 CombinedGraphs.Plot.XLabel("X Axis ");
-                CombinedGraphs.Plot.YLabel("y Axis");
+                CombinedGraphs.Plot.YLabel("Y Axis");
                 CombinedGraphs.Plot.Title("Combined Graphs");
 
                 //Customize the layout and labels colors

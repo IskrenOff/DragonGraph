@@ -7,8 +7,10 @@
              xmlns:ScottPlot="clr-namespace:ScottPlot;assembly=ScottPlot.WPF"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    
+
     <Grid RenderTransformOrigin="0.523,0.428">
-        <ScottPlot:WpfPlot x:Name="CombinedGraphs" />
+        <ScottPlot:WpfPlot x:Name="CombinedGraphs" Margin="0,20,0,0" />
+        <ComboBox HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="180" Height="20"/>
+
     </Grid>
 </UserControl>
