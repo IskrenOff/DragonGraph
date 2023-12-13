@@ -54,7 +54,7 @@ namespace WriteToExcel.ViewModels
                 SlideForce.Plot.Clear();
 
                 SlideForce.Plot.XLabel("Time Stamp");
-                SlideForce.Plot.YLabel("Slide Force");
+                SlideForce.Plot.YLabel("Slide Force (kN)");
                 SlideForce.Plot.Title("Slide Force Graph");
                 //Customize the layout and labels colors
                 SlideForce.Plot.Style(ScottPlot.Style.Blue1);

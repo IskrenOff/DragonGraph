@@ -42,8 +42,8 @@ namespace WriteToExcel.ViewModels
             {
                 Velocity.Plot.Clear();
 
-                Velocity.Plot.XLabel("Time Stamp");
-                Velocity.Plot.YLabel("Velocity");
+                Velocity.Plot.XLabel("Time Stamp ");
+                Velocity.Plot.YLabel("Velocity (mm/s)");
                 Velocity.Plot.Title("Velocity Graph");
 
                 //Customize the layout and labels colors
