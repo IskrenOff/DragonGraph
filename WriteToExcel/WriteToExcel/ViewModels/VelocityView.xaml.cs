@@ -42,7 +42,7 @@ namespace WriteToExcel.ViewModels
             {
                 Velocity.Plot.Clear();
 
-                Velocity.Plot.XLabel("Time Stamp");
+                Velocity.Plot.XLabel("Time Stamp (mm/s)");
                 Velocity.Plot.YLabel("Velocity");
                 Velocity.Plot.Title("Velocity Graph");
 
