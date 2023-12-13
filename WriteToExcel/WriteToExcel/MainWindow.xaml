@@ -118,6 +118,15 @@
                         </StackPanel>
                     </RadioButton>
 
+                    <!--Punch Force button-->
+                    <RadioButton x:Name="PunchForce" Style="{StaticResource menuButton}"
+             Tag="{StaticResource color4}" Checked="PunchForce_Checked">
+                        <StackPanel Orientation="Horizontal">
+                            <fontAwesome:IconImage Icon="LineChart"  Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Punch Force" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+                    </RadioButton>
+
                 </StackPanel>
 
             </Border>

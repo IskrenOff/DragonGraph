@@ -33,6 +33,7 @@ namespace WriteToExcel.ViewModels
         public List<double> velocity {  get; set; }
         public List<double> cushionForce {  get; set; }
         public List<double> cushionPosition {  get; set; }
+        public List<double> punchForce {  get; set; }
         public List<double> timeStamp { get; set; }
 
         public HomeView()
@@ -43,6 +44,7 @@ namespace WriteToExcel.ViewModels
             velocity = new List<double>();
             cushionForce = new List<double>();
             cushionPosition = new List<double>();
+            punchForce = new List<double>();
             timeStamp = new List<double>();
 
             SetIntroductoryText();
@@ -157,15 +159,24 @@ namespace WriteToExcel.ViewModels
                     }
                 }
 
-                if (DataContainer.Instance != null && slideForce.Count > 0 && timeStamp.Count > 0 && velocity.Count > 0 && cushionForce.Count > 0 && cushionPosition.Count > 0)
+                for (int i = 0; i < slideForce.Count; i++)
+                {
+                    double punchFiller = slideForce[i] - cushionForce[i];
+                    punchForce.Add(punchFiller);
+                }
+
+                if (DataContainer.Instance != null && slideForce.Count > 0 && timeStamp.Count > 0 && 
+                    velocity.Count > 0 && cushionForce.Count > 0 && cushionPosition.Count > 0 && punchForce.Count > 0)
                 {
                     DataContainer.Instance.SlideForce = slideForce;
                     DataContainer.Instance.Velocity = velocity;
                     DataContainer.Instance.CushionForce = cushionForce;
                     DataContainer.Instance.CushionPosition = cushionPosition;
+                    DataContainer.Instance.PunchForce = punchForce;
                     DataContainer.Instance.TimeStamp = timeStamp;
                 }
             }
+            
         }
 
         private void CreateExcel_Click(object sender, RoutedEventArgs e)

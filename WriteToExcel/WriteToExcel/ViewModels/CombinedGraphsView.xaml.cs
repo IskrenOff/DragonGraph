@@ -34,6 +34,7 @@ namespace DragonGraph.ViewModels
         ScatterPlot velocityPlot;
         ScatterPlot cushionForcePlot;
         ScatterPlot cushionPositionPlot;
+        ScatterPlot punchForcePlot;
 
         public void ProcessData()
         {
@@ -42,10 +43,12 @@ namespace DragonGraph.ViewModels
             List<double> timeStamp = DataContainer.Instance.TimeStamp;
             List<double> cushionForce = DataContainer.Instance.CushionForce;
             List<double> cushionPosition = DataContainer.Instance.CushionPosition;
+            List<double> punchForce = DataContainer.Instance.PunchForce;
             double[] slideForceY = slideForce.ToArray();
             double[] velocityY = velocity.ToArray();
             double[] cushionForceY = cushionForce.ToArray();
             double[] cushionPositionY = cushionPosition.ToArray();
+            double[] punchForceY = punchForce.ToArray();
             double[] dataX = timeStamp.ToArray();
 
             var legend = CombinedGraphs.Plot.Legend();
@@ -95,8 +98,14 @@ namespace DragonGraph.ViewModels
                 }
                 if (CushionPositionBox.IsChecked == true)
                 {
-                    cushionPositionPlot = CombinedGraphs.Plot.AddScatter(dataX, cushionPositionY, color: System.Drawing.Color.Orange, markerSize: 3, label: "Cushin Position");
+                    cushionPositionPlot = CombinedGraphs.Plot.AddScatter(dataX, cushionPositionY, color: System.Drawing.Color.Orange, markerSize: 3, label: "Cushion Position");
                     cushionPositionPlot.Smooth = true;
+                    CombinedGraphs.Render();
+                }
+                if (PunchForceBox.IsChecked == true)
+                {
+                    punchForcePlot = CombinedGraphs.Plot.AddScatter(dataX, punchForceY, color: System.Drawing.Color.Yellow, markerSize: 3, label: "Punch Force");
+                    punchForcePlot.Smooth = true;
                     CombinedGraphs.Render();
                 }
 
@@ -220,6 +229,31 @@ namespace DragonGraph.ViewModels
         private void CushionPosition_Unchecked(object sender, RoutedEventArgs e)
         {
             CombinedGraphs.Plot.Remove(cushionPositionPlot);
+            CombinedGraphs.Refresh();
+        }
+
+        private void PunchForce_Checked(object sender, RoutedEventArgs e)
+        {
+            List<double> punchForce = DataContainer.Instance.PunchForce;
+            List<double> timeStamp = DataContainer.Instance.TimeStamp;
+            double[] punchForceY = punchForce.ToArray();
+            double[] dataX = timeStamp.ToArray();
+
+            if (punchForce.Count == 0 || punchForce == null)
+            {
+                Content = new WriteToExcel.ViewModels.NoDataView();
+            }
+            else
+            {
+                punchForcePlot = CombinedGraphs.Plot.AddScatter(dataX, punchForceY, color: System.Drawing.Color.Yellow, markerSize: 3, label: "Punch Force");
+                punchForcePlot.Smooth = true;
+                CombinedGraphs.Render();
+            }
+        }
+
+        private void PunchForce_Unchecked(object sender, RoutedEventArgs e)
+        {
+            CombinedGraphs.Plot.Remove(punchForcePlot);
             CombinedGraphs.Refresh();
         }
     }

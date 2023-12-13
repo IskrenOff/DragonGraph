@@ -18,6 +18,7 @@
                     <CheckBox x:Name="VelocityBox" Content="Velocity" Checked="Velocity_Checked" Unchecked="Velocity_Unchecked" IsChecked="True" />
                     <CheckBox x:Name="CushionForceBox" Content="Cushion Force" Checked="CushionForce_Checked" Unchecked="CushionForce_Unchecked" IsChecked="true"/>
                     <CheckBox x:Name="CushionPositionBox" Content="Cushion Position" Checked="CushionPosition_Checked" Unchecked="CushionPosition_Unchecked" IsChecked="True"/>
+                    <CheckBox x:Name="PunchForceBox" Content="Punch Force" Checked="PunchForce_Checked" Unchecked="PunchForce_Unchecked" IsChecked="True"/>
                 </StackPanel>
             </ComboBoxItem>
         </ComboBox>

@@ -141,5 +141,16 @@ namespace WriteToExcel
                 contentArea.Content = new DragonGraph.ViewModels.CombinedGraphsView();
             }
         }
+
+        //Punch Force view
+        private void PunchForce_Checked(object sender, RoutedEventArgs e)
+        {
+            System.Windows.Controls.RadioButton? punchForceButton = sender as System.Windows.Controls.RadioButton;
+
+            if ((punchForceButton != null && punchForceButton.IsChecked == true))
+            {
+                contentArea.Content = new DragonGraph.ViewModels.PunchForceView();
+            }
+        }
     }
 }
