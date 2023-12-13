@@ -1,4 +1,5 @@
-﻿using ScottPlot.Plottable;
+﻿using ScottPlot;
+using ScottPlot.Plottable;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,17 +24,31 @@ namespace DragonGraph.ViewModels
     public partial class CombinedGraphsView : UserControl
     {
         
-
         public CombinedGraphsView()
         {
             InitializeComponent();
             ProcessData();
-
         }
+
+        ScatterPlot slideForcePlot;
+        ScatterPlot velocityPlot;
+        ScatterPlot cushionForcePlot;
+        ScatterPlot cushionPositionPlot;
+
         public void ProcessData()
         {
             List<double> slideForce = DataContainer.Instance.SlideForce;
-          
+            List<double> velocity = DataContainer.Instance.Velocity;
+            List<double> timeStamp = DataContainer.Instance.TimeStamp;
+            List<double> cushionForce = DataContainer.Instance.CushionForce;
+            List<double> cushionPosition = DataContainer.Instance.CushionPosition;
+            double[] slideForceY = slideForce.ToArray();
+            double[] velocityY = velocity.ToArray();
+            double[] cushionForceY = cushionForce.ToArray();
+            double[] cushionPositionY = cushionPosition.ToArray();
+            double[] dataX = timeStamp.ToArray();
+
+            var legend = CombinedGraphs.Plot.Legend();
 
             if (slideForce.Count == 0 || slideForce == null)
             {
@@ -56,7 +71,35 @@ namespace DragonGraph.ViewModels
                 CombinedGraphs.Plot.XAxis.Label(color: System.Drawing.Color.White);
                 CombinedGraphs.Plot.YAxis.Label(color: System.Drawing.Color.White);
 
-                
+                legend.FontSize = 13;
+                legend.Location = Alignment.UpperRight;
+
+                if (SlideForceBox.IsChecked == true)
+                {
+                    slideForcePlot = CombinedGraphs.Plot.AddScatter(dataX, slideForceY, System.Drawing.Color.Aquamarine, markerSize: 3, label: "Slide Force");
+                    slideForcePlot.Smooth = true;
+                    CombinedGraphs.Render();
+                }
+                if (VelocityBox.IsChecked == true)
+                {
+                    velocityPlot = CombinedGraphs.Plot.AddScatter(dataX, velocityY, System.Drawing.Color.GreenYellow, markerSize: 3, label: "Velocity");
+                    velocityPlot.Smooth = true;
+                    CombinedGraphs.Render();
+                }
+                if (CushionForceBox.IsChecked == true)
+                {
+                    cushionForcePlot = CombinedGraphs.Plot.AddScatter(dataX, cushionForceY, color: System.Drawing.Color.Magenta, markerSize: 3, label: "Cushion Force");
+                    cushionForcePlot.Smooth = true;
+                    //legend.Location = Alignment.UpperRight;
+                    CombinedGraphs.Render();
+                }
+                if (CushionPositionBox.IsChecked == true)
+                {
+                    cushionPositionPlot = CombinedGraphs.Plot.AddScatter(dataX, cushionPositionY, color: System.Drawing.Color.Orange, markerSize: 3, label: "Cushin Position");
+                    cushionPositionPlot.Smooth = true;
+                    CombinedGraphs.Render();
+                }
+
 
                 Crosshair cross = CombinedGraphs.Plot.AddCrosshair(25, .5);
 
@@ -66,18 +109,12 @@ namespace DragonGraph.ViewModels
                     (double mouseX, double mouseY) = CombinedGraphs.GetMouseCoordinates();
                     cross.X = mouseX;
                     cross.Y = mouseY;
-
-                    
+                   
                     CombinedGraphs.Render();
                 };
             }
         }
 
-        ScatterPlot slideForcePlot;
-        ScatterPlot velocityPlot;
-        ScatterPlot cushionForcePlot;
-        ScatterPlot cushionPositionPlot;
-        ScatterPlot timeStampPlot;
 
         private void SlideForce_Checked(object sender, RoutedEventArgs e)
         {
@@ -85,10 +122,21 @@ namespace DragonGraph.ViewModels
             List<double> timeStamp = DataContainer.Instance.TimeStamp;
             double[] slideForceY = slideForce.ToArray();
             double[] dataX = timeStamp.ToArray();
+
+            var legend = CombinedGraphs.Plot.Legend();
+
+            if (slideForce.Count == 0 || slideForce == null)
+            {
+                Content = new WriteToExcel.ViewModels.NoDataView();
+            }
+            else
+            {
+                slideForcePlot = CombinedGraphs.Plot.AddScatter(dataX, slideForceY, System.Drawing.Color.Aquamarine, markerSize: 3, label: "Slide Force");
+                slideForcePlot.Smooth = true;
+                legend.Location = Alignment.UpperRight;
+                CombinedGraphs.Render();
+            }
             
-            slideForcePlot = CombinedGraphs.Plot.AddScatter(dataX, slideForceY,markerSize: 3);
-            slideForcePlot.Smooth = true;
-            CombinedGraphs.Render();
         }
 
         private void SlideForce_Unchecked(object sender, RoutedEventArgs e)
@@ -104,9 +152,19 @@ namespace DragonGraph.ViewModels
             double[] velocityY = velocity.ToArray();
             double[] dataX = timeStamp.ToArray();
 
-            velocityPlot = CombinedGraphs.Plot.AddScatter(dataX, velocityY, markerSize: 3);
-            velocityPlot.Smooth = true;
-            CombinedGraphs.Render();
+            var legend = CombinedGraphs.Plot.Legend();
+
+            if (velocity.Count == 0 || velocity == null)
+            {
+                Content = new WriteToExcel.ViewModels.NoDataView();
+            }
+            else
+            {
+                velocityPlot = CombinedGraphs.Plot.AddScatter(dataX, velocityY, System.Drawing.Color.GreenYellow, markerSize: 3, label: "Velocity");
+                velocityPlot.Smooth = true;
+                legend.Location = Alignment.UpperRight;
+                CombinedGraphs.Render();
+            }
         }
 
         private void Velocity_Unchecked(object sender, RoutedEventArgs e)
@@ -122,9 +180,16 @@ namespace DragonGraph.ViewModels
             double[] cushionForceY = cushionForce.ToArray();
             double[] dataX = timeStamp.ToArray();
 
-            cushionForcePlot = CombinedGraphs.Plot.AddScatter(dataX, cushionForceY, markerSize: 3);
-            cushionForcePlot.Smooth = true;
-            CombinedGraphs.Render();
+            if (cushionForce.Count == 0 || cushionForce == null)
+            {
+                Content = new WriteToExcel.ViewModels.NoDataView();
+            }
+            else
+            {
+                cushionForcePlot = CombinedGraphs.Plot.AddScatter(dataX, cushionForceY, color: System.Drawing.Color.Magenta, markerSize: 3, label: "Cushion Force");
+                cushionForcePlot.Smooth = true;
+                CombinedGraphs.Render();
+            }        
         }
 
         private void CushionForce_Unchecked(object sender, RoutedEventArgs e)
@@ -140,9 +205,16 @@ namespace DragonGraph.ViewModels
             double[] cushionPositionY = cushionPosition.ToArray();
             double[] dataX = timeStamp.ToArray();
 
-            cushionPositionPlot = CombinedGraphs.Plot.AddScatter(dataX, cushionPositionY, markerSize: 3);
-            cushionPositionPlot.Smooth = true;
-            CombinedGraphs.Render();
+            if (cushionPosition.Count == 0 || cushionPosition == null)
+            {
+                Content = new WriteToExcel.ViewModels.NoDataView();
+            }
+            else
+            {
+                cushionPositionPlot = CombinedGraphs.Plot.AddScatter(dataX, cushionPositionY, color: System.Drawing.Color.Orange, markerSize: 3, label : "Cushion Position");
+                cushionPositionPlot.Smooth = true;
+                CombinedGraphs.Render();
+            }          
         }
 
         private void CushionPosition_Unchecked(object sender, RoutedEventArgs e)

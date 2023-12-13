@@ -14,10 +14,10 @@
                   HorizontalAlignment="Left" VerticalAlignment="Top" Width="130" Height="20">
             <ComboBoxItem FontSize="12">
                 <StackPanel >
-                    <CheckBox Content="Slide Force" Checked="SlideForce_Checked" Unchecked="SlideForce_Unchecked" />
-                    <CheckBox Content="Velocity" Checked="Velocity_Checked" Unchecked="Velocity_Unchecked" />
-                    <CheckBox Content="Cushion Force" Checked="CushionForce_Checked" Unchecked="CushionForce_Unchecked"/>
-                    <CheckBox Content="Cushion Position" Checked="CushionPosition_Checked" Unchecked="CushionPosition_Unchecked"/>
+                    <CheckBox x:Name="SlideForceBox" Content="Slide Force" Checked="SlideForce_Checked" Unchecked="SlideForce_Unchecked" IsChecked="True" />
+                    <CheckBox x:Name="VelocityBox" Content="Velocity" Checked="Velocity_Checked" Unchecked="Velocity_Unchecked" IsChecked="True" />
+                    <CheckBox x:Name="CushionForceBox" Content="Cushion Force" Checked="CushionForce_Checked" Unchecked="CushionForce_Unchecked" IsChecked="true"/>
+                    <CheckBox x:Name="CushionPositionBox" Content="Cushion Position" Checked="CushionPosition_Checked" Unchecked="CushionPosition_Unchecked" IsChecked="True"/>
                 </StackPanel>
             </ComboBoxItem>
         </ComboBox>
