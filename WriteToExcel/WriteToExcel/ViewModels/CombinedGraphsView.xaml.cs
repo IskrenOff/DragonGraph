@@ -166,7 +166,7 @@ namespace DragonGraph.ViewModels
                 CombinedGraphs.Render();
             }
         }
-
+        //asasa
         private void Velocity_Unchecked(object sender, RoutedEventArgs e)
         {
             CombinedGraphs.Plot.Remove(velocityPlot);
