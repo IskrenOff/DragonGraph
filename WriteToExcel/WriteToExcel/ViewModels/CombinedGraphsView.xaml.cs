@@ -75,6 +75,7 @@ namespace DragonGraph.ViewModels
                 CombinedGraphs.Plot.YAxis.Label(color: System.Drawing.Color.White);
 
                 legend.FontSize = 13;
+                legend.FillColor = System.Drawing.Color.Gray;
                 legend.Location = Alignment.UpperRight;
 
                 if (SlideForceBox.IsChecked == true)
