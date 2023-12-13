@@ -14,6 +14,7 @@ namespace WriteToExcel
         public List<double> Velocity { get; set; }
         public List<double> CushionForce { get; set; }
         public List<double> CushionPosition { get; set; }
+        public List<double> PunchForce { get; set; }
         public List<double> TimeStamp { get; set; }
 
         // Private constructor to prevent external instantiation
@@ -23,6 +24,7 @@ namespace WriteToExcel
             Velocity = new List<double>();
             CushionForce = new List<double>();
             CushionPosition = new List<double>();
+            PunchForce = new List<double>();
             TimeStamp = new List<double>();
         }
 
