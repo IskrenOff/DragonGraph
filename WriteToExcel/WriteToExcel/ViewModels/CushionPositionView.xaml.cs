@@ -42,7 +42,7 @@ namespace WriteToExcel.ViewModels
             {
                 CushionPosition.Plot.Clear();
 
-                CushionPosition.Plot.XLabel("Time Stamp (mm/s)");
+                CushionPosition.Plot.XLabel("Time Stamp");
                 CushionPosition.Plot.YLabel("Cushion Position (mm)");
                 CushionPosition.Plot.Title("Cushion Position Graph");
 

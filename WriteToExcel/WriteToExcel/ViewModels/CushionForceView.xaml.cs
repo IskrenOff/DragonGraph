@@ -42,7 +42,7 @@ namespace WriteToExcel.ViewModels
             {
                 CushionForce.Plot.Clear();
 
-                CushionForce.Plot.XLabel("Time Stamp (mm/s)");
+                CushionForce.Plot.XLabel("Time Stamp");
                 CushionForce.Plot.YLabel("Cushion Force (kN)");
                 CushionForce.Plot.Title("Cushion Force Graph");
 
